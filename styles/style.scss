@@ -24,7 +24,8 @@ time, mark, audio, video {
 
 html{
     body{
-        @import url();
+        margin: 0px;
+        @import 'header';
         .main {
 
         }

@@ -1,0 +1,21 @@
+.nav {
+    height: 100vh;
+    width: 10vw;
+    position: fixed;
+    .logo {
+        background-color: coral;
+        width: 10vw;
+        height: 15vh;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+            width: 95px;
+        }
+    }
+    &-burger {
+        display: none;
+    }
+
+}
