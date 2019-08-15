@@ -1,38 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&amp;subset=cyrillic" rel="stylesheet">
     <script src="js/main.js" type="text/javascript"></script>
-    <link type="text/css" rel="stylesheet" href="styles/styles.css">
-    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="styles/style.css">
+    <title>TMDb</title>
 </head>
-<body>
-  <nav class='nav'>
-    <a href="#" class='logo'>
-        <img src="assets/assets/iso_blanco_transparent.svg" alt='ada'>
-    </a>      
-    <div class='nav-burger'>
-     <div class='bar'></div>
-     <div class='bar'></div>
-     <div class='bar'></div>
-     <div class='bar'></div>
-    </div>
-   <ul class='nav-list'>
-       <li class='nav-item'><a href="movies/popular" class="nav-link"></a></li>
-       <li class='nav-item'><a href="movies/popular" class="nav-link"></a></li>
-       <li class='nav-item'><a href="movies/popular" class="nav-link"></a></li>
-       <li class='nav-item'><a href="movies/popular" class="nav-link"></a></li>
-   </ul>
-  </nav>
-  <header class="search">
-      <input type="text" placeholder="Search for a movie" class="search-input">
-  </header>
-  <div class='main'>
 
-    
-  </div>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="#" class="logo"><img src="assets/iso_blanco_transparent.svg" alt="Ada"></a>
+            <ul class="nav-list">
+                <li class='nav-item'>
+                    <a href="/popular" class="nav-link">
+                        <div class="wrapper">
+                            <img src="assets/popular.svg">
+                            <span>POPULAR</span>
+                        </div>
+                    </a>
+                </li>
+                <li class='nav-item'>
+                    <a href="/top-rated" class="nav-link">
+                        <div class="wrapper">
+                            <img src="assets/top_rated.svg">
+                            <span>TOP RATED</span>
+                        </div>
+                    </a>
+                </li>
+                <li class='nav-item'>
+                    <a href="/upcoming" class="nav-link">
+                        <div class="wrapper">
+                            <img src="assets/upcoming.svg">
+                            <span>UPCOMING</span>
+                        </div>
+                    </a>
+                </li>
+                <li class='nav-item'>
+                    <a href="/now-playing" class="nav-link">
+                        <div class="wrapper">
+                            <img src="assets/now_playing.svg">
+                            <span>NOW PLAYING</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <header class="search">
+            <input type="text" placeholder="Search for a movie..." class="search-input">
+        </header>
+    </div>
 </body>
+
 </html>

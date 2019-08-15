@@ -15,32 +15,64 @@ time, mark, audio, video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
+  font-family: "Roboto", sans-serif;
   vertical-align: baseline;
 }
 
-html body {
-  margin: 0px;
-}
-html body .nav {
+.container {
+  width: 100vw;
   height: 100vh;
-  width: 10vw;
-  position: fixed;
-}
-html body .nav .logo {
-  background-color: coral;
-  width: 10vw;
-  height: 15vh;
+  overflow: hidden;
   box-sizing: border-box;
+}
+
+.nav {
+  position: fixed;
+  width: 95px;
+  height: 100vh;
+}
+.nav .logo {
+  background-color: coral;
+  height: 75px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-html body .nav .logo img {
-  width: 95px;
+.nav .logo img {
+  width: 35px;
 }
-html body .nav-burger {
-  display: none;
+.nav .nav-list .nav-link {
+  width: 95px;
+  height: 95px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.nav .nav-list .nav-link:hover img, .nav .nav-list .nav-link:hover span {
+  color: coral;
+}
+.nav .nav-list .nav-link .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav .nav-list .nav-link .wrapper img {
+  width: 20px;
+  height: 20px;
+}
+.nav .nav-list .nav-link .wrapper span {
+  font-size: 9px;
+  margin-top: 10px;
+  color: gray;
+  font-weight: lighter;
+  letter-spacing: 0.5px;
+}
+
+.search {
+  float: right;
 }
 
 /*# sourceMappingURL=style.css.map */

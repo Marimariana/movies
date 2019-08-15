@@ -1,3 +1,9 @@
+// VARIABLES
+$general: #081c24; // NO SE SI LO VAMOS A USAR
+$font: 'Roboto', sans-serif;
+
+// MIXINS
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -14,20 +20,73 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
-	font: inherit;
+    font-size: 100%;
+    font-family: $font;
 	vertical-align: baseline;
 }
-//mixin 
 
-//parametros
+.container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
+}
 
-html{
-    body{
-        margin: 0px;
-        @import 'header';
-        .main {
+.nav {
+    position: fixed;
+    width: 95px;
+    height: 100vh;
 
+    .logo {
+        background-color: coral;
+        height: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+            width: 35px;
         }
     }
+
+    .nav-list {
+            .nav-link {
+                width: 95px;
+                height: 95px;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: all 0.5s;
+
+                &:hover {
+                    img, span {
+                        color: coral;
+                    }
+                }
+
+                .wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    img {
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                    span {
+                        font-size: 9px;
+                        margin-top: 10px;
+                        color: gray;
+                        font-weight: lighter;
+                        letter-spacing: .5px;
+                    }
+                }
+            }
+        }
+}
+
+.search {
+    float: right;
 }
