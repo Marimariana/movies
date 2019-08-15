@@ -27,8 +27,6 @@ time, mark, audio, video {
 
 .container {
     width: 100vw;
-    height: 100vh;
-    overflow: hidden;
     box-sizing: border-box;
 }
 
@@ -66,12 +64,22 @@ time, mark, audio, video {
                 align-items: center;
                 justify-content: center;
                 border-bottom: 1px solid #f8f8f8;
-                transition: all 0.5s;
+                transition: all 0.5s ease;
 
-                &:hover {
-                    img, span {
-                        color: coral;
-                    }
+                &:hover .title-popular, img { // NO FUNCIONA TRANSITION. VER SI FUNCIONA CON IMG
+                    color: coral
+                }
+
+                &:hover .title-toprated, img {
+                    color: coral
+                }
+
+                &:hover .title-upcoming, img {
+                    color: coral
+                }
+
+                &:hover .title-nowplaying, img {
+                    color: coral
                 }
 
                 .wrapper {
@@ -108,6 +116,7 @@ time, mark, audio, video {
     .wrapper {
         position: relative;
         height: 100%;
+        background-color: white;
     }
 
     img {
@@ -139,7 +148,7 @@ time, mark, audio, video {
     .home {
         height: inherit;
 
-        header {
+        .main-header {
             height: 384px;
             width: 100%;
             display: flex;
@@ -155,6 +164,46 @@ time, mark, audio, video {
             font-size: 26px;
             letter-spacing: 0.5px;
             font-weight: 500;
+        }
+    }
+}
+
+// MOVIES
+.movies-container {
+    background-color: #f8f8f8;
+    height: 100vh;
+
+    .movies {
+        padding: 35px;
+
+        .movies-header {
+            overflow: hidden;
+            line-height: 35px;
+
+            h2 {
+                font-size: 18px;
+                margin: 10px 0;
+                font-weight: 300;
+                float: left;
+            }
+
+            a {
+                font-size: 12px;
+                font-weight: 300;
+                float: right;
+                line-height: 50px;
+                text-decoration: none;
+                color: gray;
+                transition: all 0.5s ease;
+
+                &:hover {
+                    color: coral;
+                }
+
+                ::after {
+                    content: "→"
+                }
+            }
         }
     }
 }
