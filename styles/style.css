@@ -30,6 +30,7 @@ time, mark, audio, video {
   position: fixed;
   width: 95px;
   height: 100vh;
+  z-index: 999;
 }
 .nav .logo {
   background-color: coral;
@@ -40,6 +41,10 @@ time, mark, audio, video {
 }
 .nav .logo img {
   width: 35px;
+  transition: transform 0.5s ease;
+}
+.nav .logo img:hover {
+  transform: scale(1.04);
 }
 .nav .nav-list .nav-link {
   width: 95px;
@@ -48,7 +53,7 @@ time, mark, audio, video {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  border-bottom: 1px solid #f8f8f8;
   transition: all 0.5s;
 }
 .nav .nav-list .nav-link:hover img, .nav .nav-list .nav-link:hover span {
@@ -72,7 +77,56 @@ time, mark, audio, video {
 }
 
 .search {
-  float: right;
+  position: fixed;
+  z-index: 999;
+  width: 100vw;
+  height: 75px;
+  margin-left: 95px;
+}
+.search .wrapper {
+  position: relative;
+  height: 100%;
+}
+.search img {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 50%;
+  margin-top: -7px;
+  left: 20px;
+}
+.search input {
+  border: none;
+  padding: 28px 30px 28px 60px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: lighter;
+  width: 75%;
+}
+
+.main {
+  padding: 75px 0 0;
+  margin-left: 95px;
+  height: 100vh;
+}
+.main .home {
+  height: inherit;
+}
+.main .home header {
+  height: 384px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(".../assets/batman.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.main .home h1 {
+  font-size: 26px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
 }
 
 /*# sourceMappingURL=style.css.map */
