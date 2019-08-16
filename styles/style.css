@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -21,8 +22,6 @@ time, mark, audio, video {
 
 .container {
   width: 100vw;
-  height: 100vh;
-  overflow: hidden;
   box-sizing: border-box;
 }
 
@@ -54,9 +53,18 @@ time, mark, audio, video {
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid #f8f8f8;
-  transition: all 0.5s;
+  transition: all 0.5s ease;
 }
-.nav .nav-list .nav-link:hover img, .nav .nav-list .nav-link:hover span {
+.nav .nav-list .nav-link:hover .title-popular, .nav .nav-list .nav-link img {
+  color: coral;
+}
+.nav .nav-list .nav-link:hover .title-toprated, .nav .nav-list .nav-link img {
+  color: coral;
+}
+.nav .nav-list .nav-link:hover .title-upcoming, .nav .nav-list .nav-link img {
+  color: coral;
+}
+.nav .nav-list .nav-link:hover .title-nowplaying, .nav .nav-list .nav-link img {
   color: coral;
 }
 .nav .nav-list .nav-link .wrapper {
@@ -86,6 +94,7 @@ time, mark, audio, video {
 .search .wrapper {
   position: relative;
   height: 100%;
+  background-color: white;
 }
 .search img {
   width: 14px;
@@ -112,7 +121,7 @@ time, mark, audio, video {
 .main .home {
   height: inherit;
 }
-.main .home header {
+.main .home .main-header {
   height: 384px;
   width: 100%;
   display: flex;
@@ -127,6 +136,39 @@ time, mark, audio, video {
   font-size: 26px;
   letter-spacing: 0.5px;
   font-weight: 500;
+}
+
+.movies-container {
+  background-color: #f8f8f8;
+  height: 100vh;
+}
+.movies-container .movies {
+  padding: 35px;
+}
+.movies-container .movies .movies-header {
+  overflow: hidden;
+  line-height: 35px;
+}
+.movies-container .movies .movies-header h2 {
+  font-size: 18px;
+  margin: 10px 0;
+  font-weight: 300;
+  float: left;
+}
+.movies-container .movies .movies-header a {
+  font-size: 12px;
+  font-weight: 300;
+  float: right;
+  line-height: 50px;
+  text-decoration: none;
+  color: gray;
+  transition: all 0.5s ease;
+}
+.movies-container .movies .movies-header a:hover {
+  color: coral;
+}
+.movies-container .movies .movies-header a ::after {
+  content: "→";
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -17,18 +17,18 @@
             <a href="#" class="logo"><img src="assets/iso_blanco_transparent.svg" alt="Ada"></a>
             <ul class="nav-list">
                 <li class='nav-item'>
-                    <a href="/popular" class="nav-link">
+                    <a href="/popular" class="nav-link" class="link-popular">
                         <div class="wrapper">
                             <img src="assets/popular.svg">
-                            <span>POPULAR</span>
+                            <span class="title-popular">POPULAR</span>
                         </div>
                     </a>
                 </li>
                 <li class='nav-item'>
-                    <a href="/top-rated" class="nav-link">
+                    <a href="/top-rated" class="nav-link" class="link-toprated">
                         <div class="wrapper">
                             <img src="assets/top_rated.svg">
-                            <span>TOP RATED</span>
+                            <span class="title-toprated">TOP RATED</span>
                         </div>
                     </a>
                 </li>
@@ -36,7 +36,7 @@
                     <a href="/upcoming" class="nav-link">
                         <div class="wrapper">
                             <img src="assets/upcoming.svg">
-                            <span>UPCOMING</span>
+                            <span class="title-upcoming">UPCOMING</span>
                         </div>
                     </a>
                 </li>
@@ -44,7 +44,7 @@
                     <a href="/now-playing" class="nav-link">
                         <div class="wrapper">
                             <img src="assets/now_playing.svg">
-                            <span>NOW PLAYING</span>
+                            <span class="title-nowplaying">NOW PLAYING</span>
                         </div>
                     </a>
                 </li>
@@ -58,9 +58,35 @@
         </header>
         <section class="main">
             <section class="home">
-                <header>
+                <header class="main-header">
                     <h1>THE MOVIE DB APP</h1>
                 </header>
+                <div class="movies-container">
+                    <div class="movies" id="popular-movies">
+                        <header class="movies-header">
+                            <h2>Popular Movies</h2>
+                            <a href="">View All -></a>
+                        </header>
+                    </div>
+                    <div class="movies" id="top-rated-movies">
+                        <header class="movies-header">
+                            <h2>Top Rated Movies</h2>
+                            <a href="">View All -></a>
+                        </header>
+                    </div>
+                    <div class="movies" id="upcoming-movies">
+                        <header class="movies-header">
+                            <h2>Upcoming Movies</h2>
+                            <a href="">View All -></a>
+                        </header>
+                    </div>
+                    <div class="movies" id="now-playing-movies">
+                        <header class="movies-header">
+                            <h2>Now Playing Movies</h2>
+                            <a href="">View All -></a>
+                        </header>
+                    </div>
+                </div>
             </section>
         </section>
     </div>
