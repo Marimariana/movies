@@ -17,17 +17,17 @@
             <a href="#" class="logo"><img src="assets/iso_blanco_transparent.svg" alt="Ada"></a>
             <ul class="nav-list" id="mainMenu">
                 <li class='nav-item'>
-                    <a href="/popular" class="nav-link" class="link-popular">
+                    <a href="/popular" class="nav-link">
                         <div class="wrapper">
-                            <img src="assets/popular.svg">
+                            <img src="assets/popular.svg" class="svg">
                             <span class="title-popular">POPULAR</span>
                         </div>
                     </a>
                 </li>
                 <li class='nav-item'>
-                    <a href="/top-rated" class="nav-link" class="link-toprated">
+                    <a href="/top-rated" class="nav-link">
                         <div class="wrapper">
-                            <img src="assets/top_rated.svg">
+                            <img src="assets/top_rated.svg" class="svg">
                             <span class="title-toprated">TOP RATED</span>
                         </div>
                     </a>
@@ -35,7 +35,7 @@
                 <li class='nav-item'>
                     <a href="/upcoming" class="nav-link">
                         <div class="wrapper">
-                            <img src="assets/upcoming.svg">
+                            <img src="assets/upcoming.svg" class="svg">
                             <span class="title-upcoming">UPCOMING</span>
                         </div>
                     </a>
@@ -43,7 +43,7 @@
                 <li class='nav-item'>
                     <a href="/now-playing" class="nav-link">
                         <div class="wrapper">
-                            <img src="assets/now_playing.svg">
+                            <img src="assets/now_playing.svg" class="svg">
                             <span class="title-nowplaying">NOW PLAYING</span>
                         </div>
                     </a>
@@ -52,8 +52,8 @@
         </nav>
         <header class="search">
             <div class="wrapper">
-                <img src="assets/search.svg">
-                <input type="text" placeholder="Search for a movie...">
+                <img src="assets/search.svg" class="search-icon">
+                <input type="text" placeholder="Search for a movie..." id="search-input" onkeypress="handleKeyPress(event)">
             </div>
         </header>
         <section class="main">
@@ -65,25 +65,25 @@
                     <div class="movies" id="popular-movies">
                         <header class="movies-header">
                             <h2>Popular Movies</h2>
-                            <a href="">View All -></a>
+                            <a href="" class="view-all">View All</a>
                         </header>
                     </div>
                     <div class="movies" id="top-rated-movies">
                         <header class="movies-header">
                             <h2>Top Rated Movies</h2>
-                            <a href="">View All -></a>
+                            <a href="" class="view-all">View All</a>
                         </header>
                     </div>
                     <div class="movies" id="upcoming-movies">
                         <header class="movies-header">
                             <h2>Upcoming Movies</h2>
-                            <a href="">View All -></a>
+                            <a href="" class="view-all">View All</a>
                         </header>
                     </div>
                     <div class="movies" id="now-playing-movies">
                         <header class="movies-header">
                             <h2>Now Playing Movies</h2>
-                            <a href="">View All -></a>
+                            <a href="" class="view-all">View All</a>
                         </header>
                     </div>
                 </div>

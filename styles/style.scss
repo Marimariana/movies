@@ -1,5 +1,5 @@
 // VARIABLES
-$general: #081c24; // NO SE SI LO VAMOS A USAR
+$clear-coral: rgb(250, 151, 115);
 $font: 'Roboto', sans-serif;
 
 // MIXINS
@@ -64,21 +64,24 @@ time, mark, audio, video {
                 align-items: center;
                 justify-content: center;
                 border-bottom: 1px solid #f8f8f8;
-                transition: all 0.5s ease;
 
-                &:hover .title-popular, img { // NO FUNCIONA TRANSITION. VER SI FUNCIONA CON IMG
+                &:hover .svg {
+                    transform: scale(1.5);
+                }
+
+                &:hover .title-popular {
                     color: coral
                 }
 
-                &:hover .title-toprated, img {
+                &:hover .title-toprated {
                     color: coral
                 }
 
-                &:hover .title-upcoming, img {
+                &:hover .title-nowplaying {
                     color: coral
                 }
 
-                &:hover .title-nowplaying, img {
+                &:hover .title-upcoming {
                     color: coral
                 }
 
@@ -88,14 +91,15 @@ time, mark, audio, video {
                     align-items: center;
 
                     img {
-                        width: 20px;
-                        height: 20px;
+                        width: 26px;
+                        height: 26px;
+                        fill: $clear-coral;
                     }
 
                     span {
                         font-size: 9px;
                         margin-top: 10px;
-                        color: gray;
+                        color: $clear-coral;
                         font-weight: lighter;
                         letter-spacing: .5px;
                     }
@@ -117,24 +121,33 @@ time, mark, audio, video {
         position: relative;
         height: 100%;
         background-color: white;
-    }
 
-    img {
-        width: 14px;
-        height: 14px;
-        position: absolute;
-        top: 50%;
-        margin-top: -7px;
-        left: 20px;
-    }
+        &:hover .search-icon {
+            transform: scale(1.5)
+        }
 
-    input {
-        border: none;
-        padding: 28px 30px 28px 60px;
-        font-family: $font;
-        font-size: 16px;
-        font-weight: lighter;
-        width: 75%
+        .search-icon {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 50%;
+            margin-top: -10px;
+            left: 20px;
+        }
+    
+        input {
+            border: none;
+            padding: 28px 30px 28px 60px;
+            font-family: $font;
+            font-size: 16px;
+            font-weight: lighter;
+            width: 75%;
+            color: $clear-coral;
+    
+            &:hover {
+                color: coral;
+            }
+        }
     }
 }
 
@@ -158,12 +171,25 @@ time, mark, audio, video {
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: hsla(0,0%,97%,.7);
+            }
         }
 
         h1 {
             font-size: 26px;
             letter-spacing: 0.5px;
             font-weight: 500;
+            z-index: 999;
+            color: coral;
         }
     }
 }
@@ -185,23 +211,25 @@ time, mark, audio, video {
                 margin: 10px 0;
                 font-weight: 300;
                 float: left;
+                color: coral;
             }
 
-            a {
+            .view-all {
                 font-size: 12px;
                 font-weight: 300;
                 float: right;
                 line-height: 50px;
                 text-decoration: none;
-                color: gray;
+                color: $clear-coral;
                 transition: all 0.5s ease;
 
                 &:hover {
                     color: coral;
                 }
 
-                ::after {
-                    content: "→"
+                &::after {
+                    content: '\2192';
+                    padding: 5px;
                 }
             }
         }
