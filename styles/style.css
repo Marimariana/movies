@@ -57,7 +57,16 @@ time, mark, audio, video {
 .nav .nav-list .nav-link:hover .svg {
   transform: scale(1.5);
 }
-.nav .nav-list .nav-link:hover .title-popular, .nav .nav-list .nav-link .title-toprated, .nav .nav-list .nav-link .title-nowplaying, .nav .nav-list .nav-link .title-upcoming {
+.nav .nav-list .nav-link:hover .title-popular {
+  color: coral;
+}
+.nav .nav-list .nav-link:hover .title-toprated {
+  color: coral;
+}
+.nav .nav-list .nav-link:hover .title-nowplaying {
+  color: coral;
+}
+.nav .nav-list .nav-link:hover .title-upcoming {
   color: coral;
 }
 .nav .nav-list .nav-link .wrapper {
@@ -132,11 +141,23 @@ time, mark, audio, video {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
+}
+.main .home .main-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(247, 247, 247, 0.7);
 }
 .main .home h1 {
   font-size: 26px;
   letter-spacing: 0.5px;
   font-weight: 500;
+  z-index: 999;
+  color: coral;
 }
 
 .movies-container {
