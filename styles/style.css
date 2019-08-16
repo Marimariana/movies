@@ -55,6 +55,9 @@ time, mark, audio, video {
   border-bottom: 1px solid #f8f8f8;
   transition: all 0.5s ease;
 }
+.nav .nav-list .nav-link:hover .svg {
+  transform: scale(1.5);
+}
 .nav .nav-list .nav-link:hover .title-popular {
   color: coral;
 }
@@ -97,7 +100,10 @@ time, mark, audio, video {
   height: 100%;
   background-color: white;
 }
-.search img {
+.search .wrapper:hover .search-icon {
+  transform: scale(1.5);
+}
+.search .wrapper .search-icon {
   width: 20px;
   height: 20px;
   position: absolute;
@@ -105,7 +111,7 @@ time, mark, audio, video {
   margin-top: -10px;
   left: 20px;
 }
-.search input {
+.search .wrapper input {
   border: none;
   padding: 28px 30px 28px 60px;
   font-family: "Roboto", sans-serif;
@@ -114,7 +120,7 @@ time, mark, audio, video {
   width: 75%;
   color: #fa9773;
 }
-.search input:hover {
+.search .wrapper input:hover {
   color: coral;
 }
 
