@@ -53,21 +53,11 @@ time, mark, audio, video {
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid #f8f8f8;
-  transition: all 0.5s ease;
 }
 .nav .nav-list .nav-link:hover .svg {
   transform: scale(1.5);
 }
-.nav .nav-list .nav-link:hover .title-popular {
-  color: coral;
-}
-.nav .nav-list .nav-link:hover .title-toprated {
-  color: coral;
-}
-.nav .nav-list .nav-link:hover .title-upcoming {
-  color: coral;
-}
-.nav .nav-list .nav-link:hover .title-nowplaying {
+.nav .nav-list .nav-link:hover .title-popular, .nav .nav-list .nav-link .title-toprated, .nav .nav-list .nav-link .title-nowplaying, .nav .nav-list .nav-link .title-upcoming {
   color: coral;
 }
 .nav .nav-list .nav-link .wrapper {

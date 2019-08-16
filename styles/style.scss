@@ -64,25 +64,12 @@ time, mark, audio, video {
                 align-items: center;
                 justify-content: center;
                 border-bottom: 1px solid #f8f8f8;
-                transition: all 0.5s ease;
 
                 &:hover .svg {
                     transform: scale(1.5);
                 }
 
-                &:hover .title-popular { // NO FUNCIONA TRANSITION. VER SI FUNCIONA CON IMG
-                    color: coral
-                }
-
-                &:hover .title-toprated {
-                    color: coral
-                }
-
-                &:hover .title-upcoming {
-                    color: coral
-                }
-
-                &:hover .title-nowplaying {
+                &:hover .title-popular, .title-toprated, .title-nowplaying, .title-upcoming {
                     color: coral
                 }
 
