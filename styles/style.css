@@ -1,0 +1,198 @@
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: "Roboto", sans-serif;
+  vertical-align: baseline;
+}
+
+.container {
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+.nav {
+  position: fixed;
+  width: 95px;
+  height: 100vh;
+  z-index: 999;
+}
+.nav .logo {
+  background-color: coral;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav .logo img {
+  width: 35px;
+  transition: transform 0.5s ease;
+}
+.nav .logo img:hover {
+  transform: scale(1.04);
+}
+.nav .nav-list .nav-link {
+  width: 95px;
+  height: 95px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #f8f8f8;
+}
+.nav .nav-list .nav-link:hover .svg {
+  transform: scale(1.5);
+}
+.nav .nav-list .nav-link:hover .title-popular {
+  color: coral;
+}
+.nav .nav-list .nav-link:hover .title-toprated {
+  color: coral;
+}
+.nav .nav-list .nav-link:hover .title-nowplaying {
+  color: coral;
+}
+.nav .nav-list .nav-link:hover .title-upcoming {
+  color: coral;
+}
+.nav .nav-list .nav-link .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav .nav-list .nav-link .wrapper img {
+  width: 26px;
+  height: 26px;
+  fill: #fa9773;
+}
+.nav .nav-list .nav-link .wrapper span {
+  font-size: 9px;
+  margin-top: 10px;
+  color: #fa9773;
+  font-weight: lighter;
+  letter-spacing: 0.5px;
+}
+
+.search {
+  position: fixed;
+  z-index: 999;
+  width: 100vw;
+  height: 75px;
+  margin-left: 95px;
+}
+.search .wrapper {
+  position: relative;
+  height: 100%;
+  background-color: white;
+}
+.search .wrapper:hover .search-icon {
+  transform: scale(1.5);
+}
+.search .wrapper .search-icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  left: 20px;
+}
+.search .wrapper input {
+  border: none;
+  padding: 28px 30px 28px 60px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: lighter;
+  width: 75%;
+  color: #fa9773;
+}
+.search .wrapper input:hover {
+  color: coral;
+}
+
+.main {
+  padding: 75px 0 0;
+  margin-left: 95px;
+  height: 100vh;
+}
+.main .home {
+  height: inherit;
+}
+.main .home .main-header {
+  height: 384px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../assets/batman.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.main .home .main-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(247, 247, 247, 0.7);
+}
+.main .home h1 {
+  font-size: 26px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  z-index: 999;
+  color: coral;
+}
+
+.movies-container {
+  background-color: #f8f8f8;
+  height: 100vh;
+}
+.movies-container .movies {
+  padding: 35px;
+}
+.movies-container .movies .movies-header {
+  overflow: hidden;
+  line-height: 35px;
+}
+.movies-container .movies .movies-header h2 {
+  font-size: 18px;
+  margin: 10px 0;
+  font-weight: 300;
+  float: left;
+  color: coral;
+}
+.movies-container .movies .movies-header .view-all {
+  font-size: 12px;
+  font-weight: 300;
+  float: right;
+  line-height: 50px;
+  text-decoration: none;
+  color: #fa9773;
+  transition: all 0.5s ease;
+}
+.movies-container .movies .movies-header .view-all:hover {
+  color: coral;
+}
+.movies-container .movies .movies-header .view-all::after {
+  content: "→";
+  padding: 5px;
+}
+
+/*# sourceMappingURL=style.css.map */
