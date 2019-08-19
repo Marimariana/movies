@@ -6,7 +6,6 @@ const searchMovie = () => {
   
     if (input.value !== "") {
       input.value = ''
-      console.log('funciono')
       // aca va funcion de recorrer api
     }
 }
@@ -15,4 +14,13 @@ const handleKeyPress = event => {
     if (event.code === 'Enter') {
         searchMovie()
     }
+}
+
+// MOSTRAR MENU MOBILE
+const toggleMenu = () => {
+    let menu = document.getElementById('menu')
+    menu.classList.toggle('open')
+    menu.classList.toggle('closed')
+    let hamburger = document.getElementById('hamburger')
+    hamburger.classList.toggle('close-icon')
 }
