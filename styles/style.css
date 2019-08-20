@@ -194,5 +194,33 @@ time, mark, audio, video {
   content: "→";
   padding: 5px;
 }
+.movies-container .movies .movies-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+.movies-container .movies .movies-list li a:hover {
+  cursor: pointer;
+}
+.movies-container .movies .movies-list li a:hover img {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgba(49, 32, 13, 0.253);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.movies-container .movies .movies-list li a:hover figcaption {
+  color: coral;
+  transition: 0.5s ease;
+}
+.movies-container .movies .movies-list li a img {
+  width: 80%;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.movies-container .movies .movies-list li a figcaption {
+  color: grey;
+  margin-top: 10px;
+}
 
 /*# sourceMappingURL=style.css.map */
