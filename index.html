@@ -11,7 +11,7 @@
     <title>TMDb</title>
 </head>
 
-<body>
+<body onload="initialize()">
     <div class="container">
         <nav class="nav">
             <a href="#" class="logo"><img src="assets/iso_blanco_transparent.svg" alt="Ada"></a> 
@@ -66,29 +66,38 @@
                     <div class="movies">
                         <header class="movies-header">
                             <h2>Popular Movies</h2>
-                            <a href="" class="view-all">View All</a>
+                            <a onclick="viewPopularMovies()" class="view-all">View All</a>
                         </header>
-                        <ul id="popular-list">
+                        <ul class='movies-list' id="popular-movies">
 
                         </ul>
                     </div>
-                    <div class="movies" id="top-rated-movies">
+                    <div class="movies">
                         <header class="movies-header">
                             <h2>Top Rated Movies</h2>
                             <a href="" class="view-all">View All</a>
                         </header>
+                        <ul class='movies-list' id="top-rated-movies">
+
+                        </ul>
                     </div>
-                    <div class="movies" id="upcoming-movies">
+                    <div class="movies">
                         <header class="movies-header">
                             <h2>Upcoming Movies</h2>
                             <a href="" class="view-all">View All</a>
                         </header>
+                        <ul class='movies-list' id="upcoming-movies">
+
+                        </ul>
                     </div>
-                    <div class="movies" id="now-playing-movies">
+                    <div class="movies">
                         <header class="movies-header">
                             <h2>Now Playing Movies</h2>
                             <a href="" class="view-all">View All</a>
                         </header>
+                        <ul class='movies-list' id="now-playing-movies">
+
+                        </ul>
                     </div>
                 </div>
             </section>

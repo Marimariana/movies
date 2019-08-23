@@ -314,5 +314,37 @@ time, mark, audio, video {
                 }
             }
         }
+        .movies-list {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            list-style: none;
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            li {
+                a {
+                    &:hover {
+                        cursor: pointer;
+                        img {
+                        transform: scale(1.03);
+                        box-shadow: 0 0 10px rgba(49, 32, 13, 0.253);
+                        transition: opacity .5s ease,transform .5s ease;
+                        }
+                        figcaption {
+                            color: coral;
+                            transition: .5s ease;
+                        }
+                    } 
+                    img {
+                    width: 80%;
+                    transition: opacity .5s ease,transform .5s ease;
+                  }
+                 figcaption {
+                    color: grey;
+                    margin-top: 10px;
+                  } 
+                }
+            }
+        }
     }
 }
