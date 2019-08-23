@@ -22,7 +22,7 @@ time, mark, audio, video {
 	border: 0;
     font-size: 100%;
     font-family: $font;
-	vertical-align: baseline;
+    vertical-align: baseline;
 }
 
 .container {
@@ -37,6 +37,10 @@ time, mark, audio, video {
     width: 95px;
     height: 100vh;
     z-index: 999;
+    @media screen and (max-width: 768px) {
+        width: 55px;
+        height: 50px;
+    }
 
     .logo {
         background-color: coral;
@@ -52,12 +56,45 @@ time, mark, audio, video {
             &:hover {
                 transform: scale(1.04);
             }
+
+            @media screen and (max-width: 768px) {
+                width: 35px;
+                height: 31px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            height: 50px;
+            width: 55px;
+        }
+    }
+
+    .closed {
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
+    }
+
+    .open {
+        display: flex;
+        z-index: 999;
+        list-style: none;
+        background-color: white;
+        width: 100vw;
+        height: 100vh;
+        border-top: 1px solid #f8f8f8;
+        background: hsla(0,0%,100%,.98);
+        .nav-item {
+            width: 50%;
+        }
+
+        .nav-link {
+            border-right: 1px solid #f8f8f8;
         }
     }
 
     .nav-list {
             .nav-link {
-                width: 95px;
                 height: 95px;
                 text-decoration: none;
                 display: flex;
@@ -116,11 +153,42 @@ time, mark, audio, video {
     width: 100vw;
     height: 75px;
     margin-left: 95px;
+    box-sizing: border-box;
+    @media screen and (max-width: 768px) {
+        height: 50px;
+        margin-left: 55px;
+    }
 
     .wrapper {
         position: relative;
         height: 100%;
         background-color: white;
+        box-sizing: border-box;
+        @media screen and (max-width: 768px) {
+            height: 50px;
+        }
+
+        .hamburger {
+            display: none;
+
+            @media screen and (max-width: 768px) {
+                background-image: url("../assets/bars-solid.svg");
+                display: inline-block;
+                width: 55px;
+                height: 50px;
+                position: absolute;
+                right: 55px;
+                transform: scale(0.6);
+                cursor: pointer;
+            }
+        }
+
+        .close-icon {
+            background-image: url("../assets/times-solid.svg");
+            background-repeat: no-repeat;
+            transform: scale(0.8);
+            right: 45px;
+        }
 
         &:hover .search-icon {
             transform: scale(1.5)
@@ -143,6 +211,11 @@ time, mark, audio, video {
             font-weight: lighter;
             width: 75%;
             color: $clear-coral;
+            box-sizing: border-box;
+            @media screen and (max-width: 768px) {
+                height: 50px;
+                padding: 0 0 0 50px;
+            }
     
             &:hover {
                 color: coral;
@@ -157,6 +230,10 @@ time, mark, audio, video {
     padding: 75px 0 0;
     margin-left: 95px;
     height: 100vh;
+    @media screen and (max-width: 768px) {
+        margin-left: 0;
+        padding: 50px 0 0;
+    }
 
     .home {
         height: inherit;
@@ -182,13 +259,17 @@ time, mark, audio, video {
                 height: 100%;
                 background: hsla(0,0%,97%,.7);
             }
+
+            @media screen and (max-width: 768px) {
+                height: 200px;
+            }
         }
 
         h1 {
             font-size: 26px;
             letter-spacing: 0.5px;
             font-weight: 500;
-            z-index: 999;
+            z-index: 900;
             color: coral;
         }
     }
