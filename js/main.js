@@ -1,6 +1,6 @@
 //Variables constantes
 const apiKey = '0f240948bebe063e14528f450a77842f'
-const previewHome = [0, 1, 2, 3]
+const previewHome = [0, 1, 2, 3, 4]
 
 const searchMovie = () => {
     let input = document.getElementById('search-input')
@@ -26,6 +26,7 @@ const toggleMenu = () => {
     let hamburger = document.getElementById('hamburger')
     hamburger.classList.toggle('close-icon')
 }
+
 //iniciador
 const initialize = () => {
  movieModal('popular-movies','popular', previewHome)
