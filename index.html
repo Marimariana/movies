@@ -14,10 +14,10 @@
 <body onload="initialize()">
     <div class="container">
         <nav class="nav">
-            <a href="#" class="logo"><img src="assets/iso_blanco_transparent.svg" alt="Ada"></a> 
+            <a href="#" class="logo"><img src="assets/iso_blanco_transparent.svg" alt="Ada" onclick="initialize()"></a> 
             <ul class="nav-list closed" id="menu">
                 <li class='nav-item'>
-                    <a href="/popular" class="nav-link">
+                    <a href="" class="nav-link" onclick="viewPopularMovies()">
                         <div class="wrapper">
                             <img src="assets/popular.svg" class="svg">
                             <span class="title-popular">POPULAR</span>
@@ -58,7 +58,7 @@
             </div>
         </header>
         <section class="main">
-            <section class="home">
+            <section class="home" id="home">
                 <header class="main-header">
                     <h1>THE MOVIE DB APP</h1>
                 </header>

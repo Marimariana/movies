@@ -275,6 +275,7 @@ time, mark, audio, video {
   text-decoration: none;
   color: #fa9773;
   transition: all 0.5s ease;
+  cursor: pointer;
 }
 .movies-container .movies .movies-header .view-all:hover {
   color: coral;
@@ -291,6 +292,9 @@ time, mark, audio, video {
   font-family: "Roboto", sans-serif;
   text-align: center;
 }
+.movies-container .movies .movies-list li {
+  margin: 0 10px;
+}
 .movies-container .movies .movies-list li a:hover {
   cursor: pointer;
 }
@@ -304,7 +308,7 @@ time, mark, audio, video {
   transition: 0.5s ease;
 }
 .movies-container .movies .movies-list li a figure {
-  width: 80%;
+  width: 100%;
 }
 .movies-container .movies .movies-list li a figure img {
   width: 100%;

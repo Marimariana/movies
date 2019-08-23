@@ -302,6 +302,7 @@ time, mark, audio, video {
                 text-decoration: none;
                 color: $clear-coral;
                 transition: all 0.5s ease;
+                cursor: pointer;
 
                 &:hover {
                     color: coral;
@@ -323,6 +324,8 @@ time, mark, audio, video {
             text-align: center;
 
             li {
+                margin: 0 10px;
+                
                 a {
                     &:hover {
                         cursor: pointer;
@@ -340,7 +343,7 @@ time, mark, audio, video {
                     }
 
                     figure {
-                        width: 80%;
+                        width: 100%;
 
                         img {
                             width: 100%;
