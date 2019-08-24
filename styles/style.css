@@ -252,7 +252,6 @@ time, mark, audio, video {
 
 .movies-container {
   background-color: #f8f8f8;
-  height: 100vh;
 }
 .movies-container .movies {
   padding: 35px;
@@ -276,6 +275,7 @@ time, mark, audio, video {
   text-decoration: none;
   color: #fa9773;
   transition: all 0.5s ease;
+  cursor: pointer;
 }
 .movies-container .movies .movies-header .view-all:hover {
   color: coral;
@@ -283,6 +283,139 @@ time, mark, audio, video {
 .movies-container .movies .movies-header .view-all::after {
   content: "→";
   padding: 5px;
+}
+.movies-container .movies .movies-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+.movies-container .movies .movies-list li {
+  margin: 0 10px;
+}
+.movies-container .movies .movies-list li a:hover {
+  cursor: pointer;
+}
+.movies-container .movies .movies-list li a:hover img {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgba(49, 32, 13, 0.253);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.movies-container .movies .movies-list li a:hover figcaption {
+  color: coral;
+  transition: 0.5s ease;
+}
+.movies-container .movies .movies-list li a figure {
+  width: 100%;
+}
+.movies-container .movies .movies-list li a figure img {
+  width: 100%;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.movies-container .movies .movies-list li a figure figcaption {
+  color: #fa9773;
+  margin-top: 10px;
+  font-weight: 300;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background-color: rgba(45, 18, 2, 0.9);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+.modal .modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem 1.5rem;
+  width: 768px;
+}
+.modal .modal-content .close-button {
+  float: right;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  line-height: 40px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  z-index: 999;
+}
+.modal .modal-content .close-button:hover {
+  background-color: white;
+}
+.modal .modal-content #modal-header {
+  height: 349px;
+  width: 816px;
+  position: relative;
+  top: -16px;
+  left: -24px;
+  background-image: url("../assets/batman.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+.modal .modal-content #modal-header::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 350px;
+  background: rgba(45, 18, 2, 0.9);
+}
+.modal .modal-content .movie-poster {
+  display: block;
+  position: absolute;
+  width: calc(45% - 40px);
+  top: 40px;
+  left: 40px;
+}
+.modal .modal-content #movie-title {
+  text-align: left;
+  font-weight: 500;
+  font-size: 30px;
+  color: white;
+  margin-left: 48%;
+  position: absolute;
+  top: 20%;
+  left: 0%;
+}
+.modal .modal-content #modal-body .modalHeading {
+  font-size: 16px;
+  font-weight: 500;
+  color: #0c2028;
+  margin-top: 20px;
+}
+.modal .modal-content #modal-body #movie-info {
+  margin-left: 43%;
+  padding: 40px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
 
 /*# sourceMappingURL=style.css.map */
