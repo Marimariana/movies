@@ -2,17 +2,18 @@
 const apiKey = '0f240948bebe063e14528f450a77842f'
 const previewHome = [0, 1, 2, 3, 4]
 const previewAll = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+const currentPage = 1
 
 //iniciador
 const initialize = () => {
-  movieModal('popular-movies', 'popular', previewHome)
-  movieModal('top-rated-movies', 'top_rated', previewHome)
-  movieModal('upcoming-movies', 'upcoming', previewHome)
-  movieModal('now-playing-movies', 'now_playing', previewHome)
+  displayMovies('popular-movies', 'popular', previewHome)
+  displayMovies('top-rated-movies', 'top_rated', previewHome)
+  displayMovies('upcoming-movies', 'upcoming', previewHome)
+  displayMovies('now-playing-movies', 'now_playing', previewHome)
 }
 
 //Función que recorre el objeto, extrae y appendea los elementos que se necesitan fetch -> DOM
-const movieModal = (id, category, numberMovies) => {
+const displayMovies = (id, category, numberMovies) => {
   const container = document.getElementById(id)
   container.innerHTML = ''
   fetch(`https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}`)
@@ -100,16 +101,20 @@ const fillModal = (movieId) => {
 const viewPopularMovies = () => {
   const home = document.getElementById('home')
   home.innerHTML = ''
-  movieModal('popular-movies', 'popular', previewAll)
+  displayMovies('popular-movies', 'popular', previewAll)
 }
 
 const searchMovie = () => {
   let input = document.getElementById('search-input')
-  let movieName = input.value
+  let keywords = input.value
 
   if (input.value !== "") {
     input.value = ''
-    // aca va funcion de recorrer api
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${keywords}&page=${currentPage}`)
+    .then(res => res.json())
+    .then(res => {
+      console.log(res)
+    })
   }
 }
 
