@@ -48,5 +48,5 @@ const movieModal = (id, category, numberMovies) => {
   }
   
   const viewPopularMovies = () => {
-    movieModal('popular-movies','popular',[0, 1, 2, 3, 4, 5, 6, 7, 8])
+    movieModal('popular-movies','popular',[0,1, 2, 3, 4, 5, 6, 7, 8])
   }
