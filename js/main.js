@@ -31,7 +31,8 @@ const movieModal = (id, category, numberMovies) => {
         anchor.appendChild(figure)
         anchor.onclick = () => {
           let movieId = res.results[num].id
-          openModal(movieId)
+          toggleModal(movieId)
+          fillModal(movieId)
         }
         li.appendChild(anchor)
         container.appendChild(li)
@@ -40,11 +41,59 @@ const movieModal = (id, category, numberMovies) => {
 }
 
 //modal de información
-const openModal = (movieId) => {
+const toggleModal = (movieId) => {
+  const modal = document.querySelector(".modal")
+  modal.classList.toggle("show-modal")
+  const closeButton = document.querySelector(".close-button")
+  const windowOnClick = event => {
+    if (event.target === modal) {
+      toggleModal()
+    }
+  }
+  closeButton.addEventListener("click", toggleModal)
+  window.addEventListener("click", windowOnClick)
+}
+
+const fillModal = (movieId) => {
   fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`)
     .then(res => res.json())
     .then(res => {
-      console.log(res) //esta sustrayendo al objeto, pero no he podido appendear
+      console.log(res)
+      let modalHeader = document.getElementById('modal-header')
+      modalHeader.innerHTML = ''
+      let movieTitle = document.getElementById('movie-title')
+      movieTitle.innerHTML = `<p>${res.title}</p>`
+      let figure = document.createElement('figure')
+      figure.classList.add('movie-poster')
+      let moviePoster = document.createElement('img')
+      moviePoster.src = `https://image.tmdb.org/t/p/w300${res.poster_path}`
+      figure.appendChild(moviePoster)
+      modalHeader.appendChild(figure)
+
+      let movieInfo = document.getElementById('movie-info')
+      movieInfo.innerHTML = ''
+
+      let overview = document.createElement('p')
+      overview.classList.add('overview')
+      overview.innerText = `${res.overview}`
+      movieInfo.appendChild(overview)
+
+      let genres = document.createElement('h3')
+      genres.classList.add('modalHeading')
+      genres.innerText = `GENRES`
+      movieInfo.appendChild(genres)
+
+      let genreList = document.createElement('p')
+      movieInfo.appendChild(genreList)
+
+      let releaseDate = document.createElement('h3')
+      releaseDate.classList.add('modalHeading')
+      releaseDate.innerText = `RELEASE DATE`
+      movieInfo.appendChild(releaseDate)
+
+      let date = document.createElement('p')
+      date.innerText = `${res.release_date}`
+      movieInfo.appendChild(date)
     })
 }
 
