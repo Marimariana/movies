@@ -92,7 +92,7 @@ const fillModal = (movieId) => {
       movieInfo.appendChild(releaseDate)
 
       let date = document.createElement('p')
-      date.innerText = `${res.release_date}`
+      date.innerText = moment(res.release_date, 'YYYY-MM-DD').format('Do MMM YYYY')
       movieInfo.appendChild(date)
     })
 }
