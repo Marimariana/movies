@@ -328,6 +328,17 @@ time, mark, audio, video {
 
             li {
                 width: 16%;
+                @media screen and (max-width: 1200px) {
+                    width: 23%;
+                    &:nth-child(5) {
+                        display: none;
+                    }
+                }
+
+                @media screen and (max-width: 768px) {
+                    width: 45%;
+                    margin-bottom: 5%;
+                }
                 
                 a {
                     &:hover {

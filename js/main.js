@@ -107,7 +107,7 @@ const viewPopularMovies = () => {
   displayMovies('popular-movies', 'popular', previewAll)
 }
 
-const searchMovie = (numberMovies) => {
+const searchMovie = numberMovies => {
   let input = document.getElementById('search-input')
   let keywords = input.value
 

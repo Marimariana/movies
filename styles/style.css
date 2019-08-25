@@ -297,6 +297,20 @@ time, mark, audio, video {
 .movies-container .movies .movies-list li {
   width: 16%;
 }
+@media screen and (max-width: 1200px) {
+  .movies-container .movies .movies-list li {
+    width: 23%;
+  }
+  .movies-container .movies .movies-list li:nth-child(5) {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .movies-container .movies .movies-list li {
+    width: 45%;
+    margin-bottom: 5%;
+  }
+}
 .movies-container .movies .movies-list li a:hover {
   cursor: pointer;
 }
