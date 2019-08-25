@@ -8,14 +8,15 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&amp;subset=cyrillic" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="styles/style.css">
     <script src="js/main.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"
+        type="text/javascript"></script>
     <title>TMDb</title>
 </head>
 
 <body onload="initialize()">
     <div class="container">
         <nav class="nav">
-            <a href="#" class="logo"><img src="assets/iso_blanco_transparent.svg" alt="Ada" onclick="initialize()"></a> 
+            <a href="#" class="logo"><img src="assets/iso_blanco_transparent.svg" alt="Ada" onclick="initialize()"></a>
             <ul class="nav-list closed" id="menu">
                 <li class='nav-item'>
                     <a href="" class="nav-link" onclick="viewPopularMovies()">
@@ -54,51 +55,62 @@
         <header class="search">
             <div class="wrapper">
                 <img src="assets/search.svg" class="search-icon">
-                <input type="text" placeholder="Search for a movie..." id="search-input" onkeypress="handleKeyPress(event)">
+                <input type="text" placeholder="Search for a movie..." id="search-input"
+                    onkeypress="handleKeyPress(event)">
                 <a class="hamburger" id="hamburger" onclick="toggleMenu()"></a>
             </div>
         </header>
         <section class="main">
             <section class="home" id="home">
-                <header class="main-header">
-                    <h1>THE MOVIE DB APP</h1>
-                </header>
-                <div class="movies-container">
-                    <div class="movies">
-                        <header class="movies-header">
-                            <h2>Popular Movies</h2>
-                            <a onclick="viewPopularMovies()" class="view-all">View All</a>
-                        </header>
-                        <ul class='movies-list' id="popular-movies">
+                <div class="movies hide" id="search-results">
+                    <header class="movies-header">
+                        <h2>Search Results</h2>
+                    </header>
+                    <ul class='movies-list' id="search-results-list">
 
-                        </ul>
-                    </div>
-                    <div class="movies">
-                        <header class="movies-header">
-                            <h2>Top Rated Movies</h2>
-                            <a href="" class="view-all">View All</a>
-                        </header>
-                        <ul class='movies-list' id="top-rated-movies">
+                    </ul>
+                </div>
+                <div id="estolovamosaborrar">
+                    <header class="main-header">
+                        <h1>THE MOVIE DB APP</h1>
+                    </header>
+                    <div class="movies-container">
+                        <div class="movies">
+                            <header class="movies-header">
+                                <h2>Popular Movies</h2>
+                                <a onclick="viewPopularMovies()" class="view-all">View All</a>
+                            </header>
+                            <ul class='movies-list' id="popular-movies">
 
-                        </ul>
-                    </div>
-                    <div class="movies">
-                        <header class="movies-header">
-                            <h2>Upcoming Movies</h2>
-                            <a href="" class="view-all">View All</a>
-                        </header>
-                        <ul class='movies-list' id="upcoming-movies">
+                            </ul>
+                        </div>
+                        <div class="movies">
+                            <header class="movies-header">
+                                <h2>Top Rated Movies</h2>
+                                <a href="" class="view-all">View All</a>
+                            </header>
+                            <ul class='movies-list' id="top-rated-movies">
 
-                        </ul>
-                    </div>
-                    <div class="movies">
-                        <header class="movies-header">
-                            <h2>Now Playing Movies</h2>
-                            <a href="" class="view-all">View All</a>
-                        </header>
-                        <ul class='movies-list' id="now-playing-movies">
+                            </ul>
+                        </div>
+                        <div class="movies">
+                            <header class="movies-header">
+                                <h2>Upcoming Movies</h2>
+                                <a href="" class="view-all">View All</a>
+                            </header>
+                            <ul class='movies-list' id="upcoming-movies">
 
-                        </ul>
+                            </ul>
+                        </div>
+                        <div class="movies">
+                            <header class="movies-header">
+                                <h2>Now Playing Movies</h2>
+                                <a href="" class="view-all">View All</a>
+                            </header>
+                            <ul class='movies-list' id="now-playing-movies">
+
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -110,7 +122,7 @@
 
                 </header>
                 <div id="movie-title">
-                    
+
                 </div>
                 <div id="modal-body">
                     <div id="movie-info">

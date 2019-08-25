@@ -104,7 +104,7 @@ const viewPopularMovies = () => {
   displayMovies('popular-movies', 'popular', previewAll)
 }
 
-const searchMovie = () => {
+const searchMovie = (numberMovies) => {
   let input = document.getElementById('search-input')
   let keywords = input.value
 
@@ -113,14 +113,40 @@ const searchMovie = () => {
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${keywords}&page=${currentPage}`)
     .then(res => res.json())
     .then(res => {
-      console.log(res)
+      const searchResults = res.results
+      console.log(searchResults)
+      const container = document.getElementById('search-results-list')
+      container.innerHTML = ''
+      let hideCategories = document.getElementById('estolovamosaborrar')
+      hideCategories.classList.toggle('hide')
+      let resultsContainer = document.getElementById('search-results')
+      resultsContainer.classList.toggle('hide')
+      numberMovies.forEach(num => {
+        let li = document.createElement('li')
+        let anchor = document.createElement('a')
+        let figure = document.createElement('figure')
+        let image = document.createElement('img')
+        let movieTitle = document.createElement('figcaption')
+        image.src = `https://image.tmdb.org/t/p/w300${searchResults[num].poster_path}`
+        movieTitle.innerText = searchResults[num].title
+        figure.appendChild(image)
+        figure.appendChild(movieTitle)
+        anchor.appendChild(figure)
+        anchor.onclick = () => {
+          let movieId = searchResults[num].id
+          toggleModal(movieId)
+          fillModal(movieId)
+        }
+        li.appendChild(anchor)
+        container.appendChild(li)
+    })  
     })
   }
 }
 
 const handleKeyPress = event => {
   if (event.code === 'Enter') {
-    searchMovie()
+    searchMovie(previewAll)
   }
 }
 

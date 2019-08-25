@@ -358,6 +358,7 @@ time, mark, audio, video {
                         }
                     }
                 }
+
             }
         }
     }
@@ -443,6 +444,7 @@ time, mark, audio, video {
             font-size: 30px;
             color: white;
             margin-left: 48%;
+            margin-right: 10%;
             position: absolute;
             top: 20%;
             left: 0%;
@@ -472,4 +474,8 @@ time, mark, audio, video {
     visibility: visible;
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.hide {
+    display: none;
 }
