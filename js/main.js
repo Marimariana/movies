@@ -81,14 +81,6 @@ const fillModal = (movieId) => {
       overview.innerText = `${res.overview}`
       movieInfo.appendChild(overview)
 
-      let genres = document.createElement('h3')
-      genres.classList.add('modalHeading')
-      genres.innerText = `GENRES`
-      movieInfo.appendChild(genres)
-
-      let genreList = document.createElement('p')
-      movieInfo.appendChild(genreList)
-
       let releaseDate = document.createElement('h3')
       releaseDate.classList.add('modalHeading')
       releaseDate.innerText = `RELEASE DATE`
@@ -97,6 +89,15 @@ const fillModal = (movieId) => {
       let date = document.createElement('p')
       date.innerText = moment(res.release_date, 'YYYY-MM-DD').format('Do MMM YYYY')
       movieInfo.appendChild(date)
+
+      let genres = document.createElement('h3')
+      genres.classList.add('modalHeading')
+      genres.innerText = `GENRES`
+      movieInfo.appendChild(genres)
+
+      let genreList = document.createElement('p')
+      genreList.innerText = res.genres.map(({name}) => name).join(', ')
+      movieInfo.appendChild(genreList)
     })
 }
 
