@@ -374,7 +374,6 @@ time, mark, audio, video {
   position: relative;
   top: -16px;
   left: -24px;
-  background-image: url("../assets/batman.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -426,6 +425,8 @@ time, mark, audio, video {
   visibility: visible;
   transform: scale(1);
   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+  position: fixed;
+  overflow: auto;
 }
 
 .hide {

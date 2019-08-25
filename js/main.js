@@ -62,6 +62,7 @@ const fillModal = (movieId) => {
       console.log(res)
       let modalHeader = document.getElementById('modal-header')
       modalHeader.innerHTML = ''
+      modalHeader.style.backgroundImage = "url(" + `https://image.tmdb.org/t/p/w500${res.backdrop_path}` + ")"
       let movieTitle = document.getElementById('movie-title')
       movieTitle.innerHTML = `<p>${res.title}</p>`
       let figure = document.createElement('figure')
@@ -114,7 +115,6 @@ const searchMovie = (numberMovies) => {
     .then(res => res.json())
     .then(res => {
       const searchResults = res.results
-      console.log(searchResults)
       const container = document.getElementById('search-results-list')
       container.innerHTML = ''
       let hideCategories = document.getElementById('categories-div')
