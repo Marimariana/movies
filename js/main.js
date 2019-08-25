@@ -53,6 +53,7 @@ const toggleModal = (movieId) => {
   }
   closeButton.addEventListener("click", toggleModal)
   window.addEventListener("click", windowOnClick)
+  document.title = 'TMDb'
 }
 
 const fillModal = (movieId) => {
@@ -66,6 +67,9 @@ const fillModal = (movieId) => {
       modalHeader.style.backgroundImage = "url(" + `https://image.tmdb.org/t/p/w500${res.backdrop_path}` + ")"
       let movieTitle = document.getElementById('movie-title')
       movieTitle.innerHTML = `<p>${res.title}</p>`
+      let tagline = document.createElement('span')
+      tagline.innerText = `${res.tagline}`
+      movieTitle.appendChild(tagline)
       let figure = document.createElement('figure')
       figure.classList.add('movie-poster')
       let moviePoster = document.createElement('img')
@@ -101,31 +105,25 @@ const fillModal = (movieId) => {
     })
 }
 
-const viewPopularMovies = () => {
-  const home = document.getElementById('home')
-  home.innerHTML = ''
-  displayMovies('popular-movies', 'popular', previewAll)
-}
-
 const searchMovie = numberMovies => {
   let input = document.getElementById('search-input')
   let keywords = input.value
 
   if (input.value !== "") {
     input.value = ''
+    document.title = 'Search Results - TMDb'
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${keywords}&page=${currentPage}`)
     .then(res => res.json())
     .then(res => {
-      document.title = 'Search Results - TMDb'
       const searchResults = res.results
       const container = document.getElementById('search-results-list')
       container.innerHTML = ''
       let hideCategories = document.getElementById('categories-div')
-      hideCategories.classList.toggle('hide')
+      hideCategories.classList.add('hide')
       let resultsDiv = document.getElementById('search-results-div')
       resultsDiv.classList.remove('hide')
       let resultsContainer = document.getElementById('search-results')
-      resultsContainer.classList.toggle('hide')
+      resultsContainer.classList.remove('hide')
       numberMovies.forEach(num => {
         let li = document.createElement('li')
         let anchor = document.createElement('a')
@@ -151,6 +149,13 @@ const searchMovie = numberMovies => {
 
 const handleKeyPress = event => {
   if (event.code === 'Enter') {
+    const modal = document.querySelector(".modal")
+    modal.classList.remove("show-modal")
+    let menu = document.getElementById('menu')
+    menu.classList.remove('open')
+    menu.classList.add('closed')
+    let hamburger = document.getElementById('hamburger')
+    hamburger.classList.remove('close-icon')
     searchMovie(previewAll)
   }
 }

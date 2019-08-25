@@ -38,7 +38,7 @@ time, mark, audio, video {
     width: 95px;
     height: 100vh;
     z-index: 999;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 770px) {
         width: 55px;
         height: 50px;
     }
@@ -58,20 +58,20 @@ time, mark, audio, video {
                 transform: scale(1.04);
             }
 
-            @media screen and (max-width: 768px) {
+            @media screen and (max-width: 770px) {
                 width: 35px;
                 height: 31px;
             }
         }
 
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 770px) {
             height: 50px;
             width: 55px;
         }
     }
 
     .closed {
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 770px) {
             display: none;
         }
     }
@@ -155,7 +155,7 @@ time, mark, audio, video {
     height: 75px;
     margin-left: 95px;
     box-sizing: border-box;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 770px) {
         height: 50px;
         margin-left: 55px;
     }
@@ -165,14 +165,14 @@ time, mark, audio, video {
         height: 100%;
         background-color: white;
         box-sizing: border-box;
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 770px) {
             height: 50px;
         }
 
         .hamburger {
             display: none;
 
-            @media screen and (max-width: 768px) {
+            @media screen and (max-width: 770px) {
                 background-image: url("../assets/bars-solid.svg");
                 display: inline-block;
                 width: 55px;
@@ -213,7 +213,7 @@ time, mark, audio, video {
             width: 75%;
             color: $clear-coral;
             box-sizing: border-box;
-            @media screen and (max-width: 768px) {
+            @media screen and (max-width: 770px) {
                 height: 50px;
                 padding: 0 0 0 50px;
             }
@@ -231,7 +231,7 @@ time, mark, audio, video {
     padding: 75px 0 0;
     margin-left: 95px;
     height: 100vh;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 770px) {
         margin-left: 0;
         padding: 50px 0 0;
     }
@@ -261,7 +261,7 @@ time, mark, audio, video {
                 background: hsla(0,0%,97%,.7);
             }
 
-            @media screen and (max-width: 768px) {
+            @media screen and (max-width: 770px) {
                 height: 200px;
             }
         }
@@ -335,7 +335,7 @@ time, mark, audio, video {
                     }
                 }
 
-                @media screen and (max-width: 768px) {
+                @media screen and (max-width: 770px) {
                     width: 45%;
                     margin-bottom: 5%;
                 }
@@ -377,12 +377,20 @@ time, mark, audio, video {
     }
 
     #search-results-list {
-        display: flex;
-        flex-wrap: wrap;
-
         li {
-            margin: 15px 15px 15px 0;
-            width: 16%;
+            margin-bottom: 20px;
+            width: 18%;
+            @media screen and (max-width: 1200px) {
+                width: 23%;
+                &:nth-child(5) {
+                    display: none;
+                }
+            }
+
+            @media screen and (max-width: 770px) {
+                width: 45%;
+                margin-bottom: 5%;
+            }
         }
     }
 }
@@ -402,6 +410,10 @@ time, mark, audio, video {
     transform: scale(1.1);
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
 
+    @media screen and (max-width: 770px) {
+        z-index: 998;
+    }
+
     .modal-content {
         position: absolute;
         top: 50%;
@@ -409,7 +421,14 @@ time, mark, audio, video {
         transform: translate(-50%, -50%);
         background-color: white;
         padding: 1rem 1.5rem;
-        width: 768px;
+        width: 770px;
+
+        @media screen and (max-width: 770px) {
+            width: 100%;
+            height: 100%;
+            top: 58%;
+            padding: 0;
+        }
 
         .close-button {
             float: right;
@@ -423,6 +442,11 @@ time, mark, audio, video {
             right: 0;
             cursor: pointer;
             z-index: 999;
+
+            @media screen and (max-width: 770px) {
+                top: -14px;
+                right: 0;
+            }
         }
 
         .close-button:hover {
@@ -431,7 +455,7 @@ time, mark, audio, video {
 
         #modal-header {
             height: 349px;
-            width: 816px;
+            width: 818px;
             position: relative;
             top: -16px;
             left: -24px;
@@ -449,6 +473,16 @@ time, mark, audio, video {
                 width: 100%;
                 height: 350px;
                 background: rgba(45, 18, 2, 0.9);
+
+                @media screen and (max-width: 770px) {
+                    height: 250px;
+                }
+            }
+
+            @media screen and (max-width: 770px) {
+                height: 250px;
+                width: 100vw;
+                left: 0;
             }
         }
 
@@ -457,6 +491,10 @@ time, mark, audio, video {
             position: absolute;
             top: 40px;
             left: 40px;
+
+            @media screen and (max-width: 770px) {
+                display: none;
+            }
         }
 
         #movie-title {
@@ -469,6 +507,22 @@ time, mark, audio, video {
             position: absolute;
             top: 20%;
             left: 0%;
+
+            @media screen and (max-width: 770px) {
+                text-align: center;
+                width: 100%;
+                top: 10%;
+                margin-left: 0;
+                margin-right: 0;
+                font-size: 24px;
+            }
+
+            span {
+                display: block;
+                font-size: 14px;
+                font-weight: 300;
+                margin-top: 10px;
+            }
         }
 
         #modal-body {
@@ -485,6 +539,11 @@ time, mark, audio, video {
                 font-weight: 300;
                 font-size: 14px;
                 line-height: 1.8;
+
+                @media screen and (max-width: 770px) {
+                    margin-left: 0;
+                    font-size: 13px;
+                }
             }
         }
     }
