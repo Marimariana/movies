@@ -282,6 +282,7 @@ time, mark, audio, video {
 
     .movies {
         padding: 35px;
+        margin-left: 20px;
 
         .movies-header {
             overflow: hidden;
@@ -319,13 +320,14 @@ time, mark, audio, video {
         .movies-list {
             display: flex;
             flex-direction: row;
+            flex-wrap: wrap;
             justify-content: space-between;
             list-style: none;
             font-family: 'Roboto', sans-serif;
             text-align: center;
 
             li {
-                margin: 0 10px;
+                width: 16%;
                 
                 a {
                     &:hover {
@@ -360,6 +362,16 @@ time, mark, audio, video {
                 }
 
             }
+        }
+    }
+
+    #search-results-list {
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+            margin: 15px 15px 15px 0;
+            width: 16%;
         }
     }
 }
@@ -433,7 +445,6 @@ time, mark, audio, video {
         .movie-poster {
             display: block;
             position: absolute;
-            width: calc(45% - 40px);
             top: 40px;
             left: 40px;
         }

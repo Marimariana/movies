@@ -117,8 +117,10 @@ const searchMovie = (numberMovies) => {
       console.log(searchResults)
       const container = document.getElementById('search-results-list')
       container.innerHTML = ''
-      let hideCategories = document.getElementById('estolovamosaborrar')
+      let hideCategories = document.getElementById('categories-div')
       hideCategories.classList.toggle('hide')
+      let resultsDiv = document.getElementById('search-results-div')
+      resultsDiv.classList.remove('hide')
       let resultsContainer = document.getElementById('search-results')
       resultsContainer.classList.toggle('hide')
       numberMovies.forEach(num => {
