@@ -60,6 +60,7 @@ const fillModal = (movieId) => {
     .then(res => res.json())
     .then(res => {
       console.log(res)
+      document.title = `${res.title} - TMDb` // AGREGAR CAMBIO DE TITULO PARA CADA PANTALLA
       let modalHeader = document.getElementById('modal-header')
       modalHeader.innerHTML = ''
       modalHeader.style.backgroundImage = "url(" + `https://image.tmdb.org/t/p/w500${res.backdrop_path}` + ")"
@@ -114,6 +115,7 @@ const searchMovie = (numberMovies) => {
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${keywords}&page=${currentPage}`)
     .then(res => res.json())
     .then(res => {
+      document.title = 'Search Results - TMDb'
       const searchResults = res.results
       const container = document.getElementById('search-results-list')
       container.innerHTML = ''
