@@ -1,15 +1,10 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-//menu mobile
-=======
+
 // BUSCAR PELICULA
-=======
 //Variables constantes
 const apiKey = '0f240948bebe063e14528f450a77842f'
 const previewHome = [0, 1, 2, 3, 4]
 const previewAll = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 const currentPage = 1
->>>>>>> 6026406d41e6200b114392bd01afc38c97931638
 
 //iniciador
 const initialize = () => {
@@ -130,25 +125,20 @@ const handleKeyPress = event => {
     searchMovie()
   }
 }
-<<<<<<< HEAD
->>>>>>> ff50d8dbad7167ab1d2aa656265f924e46a5eda5
-=======
 
 // MOSTRAR MENU MOBILE
 const toggleMenu = () => {
-<<<<<<< HEAD
+
     let menu = document.getElementById('menu')
     menu.classList.toggle('open')
     menu.classList.toggle('closed')
     let hamburger = document.getElementById('hamburger')
     hamburger.classList.toggle('close-icon')
 }
->>>>>>> de5f8557add5a48584eda004c9b5e950100e438f
-=======
+{ 
   let menu = document.getElementById('menu')
   menu.classList.toggle('open')
   menu.classList.toggle('closed')
   let hamburger = document.getElementById('hamburger')
   hamburger.classList.toggle('close-icon')
 }
->>>>>>> 6026406d41e6200b114392bd01afc38c97931638
