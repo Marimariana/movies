@@ -135,10 +135,3 @@ const toggleMenu = () => {
     let hamburger = document.getElementById('hamburger')
     hamburger.classList.toggle('close-icon')
 }
-{ 
-  let menu = document.getElementById('menu')
-  menu.classList.toggle('open')
-  menu.classList.toggle('closed')
-  let hamburger = document.getElementById('hamburger')
-  hamburger.classList.toggle('close-icon')
-}
