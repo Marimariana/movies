@@ -170,13 +170,15 @@ const toggleMenu = () => {
   hamburger.classList.toggle('close-icon')
 }
 
-const toggleLights = () => {
-  let everything = document.querySelectorAll('*')
-  everything.forEach(item => item.classList.toggle('dark'))
-  let popularIcon = document.getElementById('popular-icon').src = '../movies/assets/popular-dark.svg'
-  let topRatedIcon = document.getElementById('top-rated-icon').src = '../movies/assets/top_rated-darksvg.svg'
-  let upcomingIcon = document.getElementById('upcoming-icon').src = '../movies/assets/upcoming-dark.svg'
-  let nowPlayingIcon = document.getElementById('now-playing-icon').src = '../movies/assets/now_playing-dark.svg'
-  let modal = document.getElementById('modal')
-  modal.setAttribute('style', 'background-color: #000')
+const toggleMode = sheet => {
+  document.getElementById('theme').setAttribute('href', sheet)
+  let parsedData = JSON.stringify(sheet)
+  window.localStorage.setItem("sheet", parsedData)
+}
+
+const getTheme = () => {
+  let selectedTheme = window.localStorage.getItem("sheet")
+   JSON.parse(selectedTheme)
+   console.log(selectedTheme)
+   document.getElementById('theme').setAttribute('href', selectedTheme)
 }

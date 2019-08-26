@@ -112,10 +112,10 @@ time, mark, audio, video {
   flex-direction: column;
   align-items: center;
 }
-.nav .nav-list .nav-link .wrapper img {
+.nav .nav-list .nav-link .wrapper button {
   width: 26px;
   height: 26px;
-  fill: #fa9773;
+  background: transparent;
 }
 .nav .nav-list .nav-link .wrapper span {
   font-size: 9px;
@@ -123,6 +123,26 @@ time, mark, audio, video {
   color: #fa9773;
   font-weight: lighter;
   letter-spacing: 0.5px;
+}
+.nav .nav-list .nav-link .wrapper #popular-icon {
+  background-image: url("../assets/popular.svg");
+  border: none;
+  background-repeat: no-repeat;
+}
+.nav .nav-list .nav-link .wrapper #top-rated-icon {
+  background-image: url("../assets/top_rated.svg");
+  border: none;
+  background-repeat: no-repeat;
+}
+.nav .nav-list .nav-link .wrapper #upcoming-icon {
+  background-image: url("../assets/upcoming.svg");
+  border: none;
+  background-repeat: no-repeat;
+}
+.nav .nav-list .nav-link .wrapper #now-playing-icon {
+  background-image: url("../assets/now_playing.svg");
+  border: none;
+  background-repeat: no-repeat;
 }
 
 .search {
@@ -150,7 +170,7 @@ time, mark, audio, video {
     height: 50px;
   }
 }
-.search .wrapper .lightswitch {
+.search .wrapper #dark-mode-btn {
   background-image: url("../assets/lightbulb-solid.svg");
   background-repeat: no-repeat;
   display: inline-block;
@@ -165,9 +185,12 @@ time, mark, audio, video {
   background-color: transparent;
 }
 @media screen and (max-width: 770px) {
-  .search .wrapper .lightswitch {
+  .search .wrapper #dark-mode-btn {
     top: 0;
   }
+}
+.search .wrapper #light-mode-btn {
+  border: none;
 }
 .search .wrapper .hamburger {
   display: none;
@@ -480,6 +503,7 @@ time, mark, audio, video {
   position: absolute;
   top: 40px;
   left: 40px;
+  height: 100%;
 }
 @media screen and (max-width: 770px) {
   .modal .modal-content .movie-poster {
@@ -544,44 +568,6 @@ time, mark, audio, video {
 
 .hide {
   display: none;
-}
-
-.dark {
-  background-color: #15202b;
-  text-shadow: none;
-  box-shadow: none;
-  transition: background 0.5s;
-  color: white;
-}
-.dark h1, .dark h2, .dark h3, .dark p, .dark span, .dark figcaption, .dark input, .dark a {
-  color: #bc3b69 !important;
-}
-.dark p, .dark span {
-  color: white !important;
-}
-.dark .logo, .dark .wrapper, .dark input, .dark .modal-content, .dark #modal-body, .dark #movie-info {
-  background-color: #15202b;
-}
-.dark .movies-container {
-  background-color: #000000;
-}
-.dark .movies-container div, .dark .movies-container header, .dark .movies-container ul, .dark .movies-container li, .dark .movies-container figcaption, .dark .movies-container h2, .dark .movies-container a, .dark .movies-container figure, .dark .movies-container span {
-  background-color: #000000;
-}
-.dark #movie-title {
-  background-color: transparent;
-}
-.dark #movie-title p {
-  color: #bc3b69 !important;
-}
-.dark .lightswitch {
-  background-image: url("../assets/lightbulb-regular.svg") !important;
-}
-.dark .hamburger {
-  background-image: url("../assets/bars-solid-dark.svg") !important;
-}
-.dark .search-icon {
-  background-image: url("../assets/search-dark.svg") !important;
 }
 
 /*# sourceMappingURL=style.css.map */

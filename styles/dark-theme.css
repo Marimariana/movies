@@ -1,0 +1,86 @@
+@import "style.css";
+html {
+  background-color: #15202b;
+  text-shadow: none;
+  box-shadow: none;
+  transition: background 0.5s;
+  color: white;
+}
+html h1, html h2, html h3, html p, html span, html figcaption, html input, html a {
+  color: #bc3b69 !important;
+}
+html p, html span {
+  color: white !important;
+}
+html .movies-container, html .modal {
+  background-color: #000000;
+}
+html .movies-container div, html .movies-container header, html .movies-container ul, html .movies-container li, html .movies-container figcaption, html .movies-container h2, html .movies-container a, html .movies-container figure, html .modal div, html .modal header, html .modal ul, html .modal li, html .modal figcaption, html .modal h2, html .modal a, html .modal figure {
+  background-color: #000000 !important;
+}
+html .movies-container .modal-content, html .modal .modal-content {
+  background-color: #15202b !important;
+}
+html .logo, html .wrapper, html input, html #modal-body, html #movie-info, html #menu {
+  background-color: #15202b !important;
+}
+html .close-button {
+  background: transparent !important;
+}
+html .close-button:hover {
+  background: black !important;
+}
+html #movie-title {
+  background-color: transparent !important;
+}
+html #movie-title p {
+  color: #bc3b69 !important;
+}
+html #movie-title span {
+  background-color: transparent !important;
+}
+html .lightswitch {
+  background-image: url("../assets/lightbulb-regular.svg") !important;
+}
+html .hamburger {
+  background-image: url("../assets/bars-solid-dark.svg") !important;
+}
+html .search-icon {
+  background-image: url("../assets/search-dark.svg") !important;
+}
+html #dark-mode-btn {
+  display: none;
+}
+html #light-mode-btn {
+  background-image: url("../assets/lightbulb-regular.svg");
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 55px;
+  height: 50px;
+  position: absolute;
+  right: 90px;
+  top: 10px;
+  transform: scale(0.6);
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+@media screen and (max-width: 770px) {
+  html #light-mode-btn {
+    top: 0;
+  }
+}
+html #popular-icon {
+  background-image: url("../assets/popular-dark.svg") !important;
+}
+html #top-rated-icon {
+  background-image: url("../assets/top_rated-darksvg.svg") !important;
+}
+html #upcoming-icon {
+  background-image: url("../assets/upcoming-dark.svg") !important;
+}
+html #now-playing-icon {
+  background-image: url("../assets/now_playing-dark.svg") !important;
+}
+
+/*# sourceMappingURL=dark-theme.css.map */

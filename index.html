@@ -19,9 +19,9 @@
             <a href="#" class="logo"><img src="assets/iso_blanco_transparent.svg" alt="Ada" onclick="initialize()"></a>
             <ul class="nav-list closed" id="menu">
                 <li class='nav-item'>
-                    <a href="" class="nav-link" onclick="viewPopularMovies()">
+                    <a href="" class="nav-link">
                         <div class="wrapper">
-                            <img src="assets/popular.svg" class="svg" id="popular-icon">
+                            <button type="button" svg" id="popular-icon"></button>
                             <span class="title-popular">POPULAR</span>
                         </div>
                     </a>
@@ -29,7 +29,7 @@
                 <li class='nav-item'>
                     <a href="/top-rated" class="nav-link">
                         <div class="wrapper">
-                            <img src="assets/top_rated.svg" class="svg" id="top-rated-icon">
+                            <button type="button" class="svg" id="top-rated-icon"></button>
                             <span class="title-toprated">TOP RATED</span>
                         </div>
                     </a>
@@ -37,7 +37,7 @@
                 <li class='nav-item'>
                     <a href="/upcoming" class="nav-link">
                         <div class="wrapper">
-                            <img src="assets/upcoming.svg" class="svg" id="upcoming-icon">
+                            <button type="button" class="svg" id="upcoming-icon"></button>
                             <span class="title-upcoming">UPCOMING</span>
                         </div>
                     </a>
@@ -45,7 +45,7 @@
                 <li class='nav-item'>
                     <a href="/now-playing" class="nav-link">
                         <div class="wrapper">
-                            <img src="assets/now_playing.svg" class="svg" id="now-playing-icon">
+                            <button type="button" class="svg" id="now-playing-icon"></button>
                             <span class="title-nowplaying">NOW PLAYING</span>
                         </div>
                     </a>
@@ -57,7 +57,8 @@
                 <a class="search-icon"></a>
                 <input type="text" placeholder="Search for a movie..." id="search-input"
                     onkeypress="handleKeyPress(event)">
-                <button class="lightswitch" onclick="toggleLights()"></button>
+                <button type="button" class="lightswitch" onclick="toggleMode('styles/dark-theme.css')" id="dark-mode-btn"></button>
+                <button type="button" class="lightswitch" onclick="toggleMode('styles/style.css')" id="light-mode-btn"></button>
                 <a class="hamburger" id="hamburger" onclick="toggleMenu()"></a>
             </div>
         </header>
