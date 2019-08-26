@@ -161,6 +161,8 @@ time, mark, audio, video {
   top: 10px;
   transform: scale(0.6);
   cursor: pointer;
+  border: none;
+  background-color: transparent;
 }
 @media screen and (max-width: 770px) {
   .search .wrapper .lightswitch {
@@ -279,14 +281,22 @@ time, mark, audio, video {
   margin-left: 20px;
 }
 .movies-container .movies .movies-header {
+  display: flex;
+  justify-content: space-between;
   overflow: hidden;
   line-height: 35px;
 }
 .movies-container .movies .movies-header h2 {
   font-size: 18px;
-  margin: 10px 0;
+  margin: 10px 0 25px 0;
   font-weight: 300;
   float: left;
+  color: coral;
+}
+.movies-container .movies .movies-header #total-results {
+  font-size: 13px;
+  margin: 10px 0 25px 0;
+  font-weight: 300;
   color: coral;
 }
 .movies-container .movies .movies-header .view-all {
@@ -537,7 +547,7 @@ time, mark, audio, video {
 }
 
 .dark {
-  background-color: #000000;
+  background-color: #15202b;
   text-shadow: none;
   box-shadow: none;
   transition: background 0.5s;
@@ -549,11 +559,14 @@ time, mark, audio, video {
 .dark p, .dark span {
   color: white !important;
 }
-.dark .logo, .dark .wrapper {
+.dark .logo, .dark .wrapper, .dark input, .dark .modal-content, .dark #modal-body, .dark #movie-info {
+  background-color: #15202b;
+}
+.dark .movies-container {
   background-color: #000000;
 }
-.dark .modal-content, .dark #modal-body, .dark #movie-info {
-  background-color: #15202b;
+.dark .movies-container div, .dark .movies-container header, .dark .movies-container ul, .dark .movies-container li, .dark .movies-container figcaption, .dark .movies-container h2, .dark .movies-container a, .dark .movies-container figure, .dark .movies-container span {
+  background-color: #000000;
 }
 .dark #movie-title {
   background-color: transparent;

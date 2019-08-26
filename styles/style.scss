@@ -180,6 +180,8 @@ time, mark, audio, video {
             top: 10px;
             transform: scale(0.6);
             cursor: pointer;
+            border: none;
+            background-color: transparent;
 
             @media screen and (max-width: 770px) {
                 top: 0;
@@ -306,14 +308,23 @@ time, mark, audio, video {
         margin-left: 20px;
 
         .movies-header {
+            display: flex;
+            justify-content: space-between;
             overflow: hidden;
             line-height: 35px;
 
             h2 {
                 font-size: 18px;
-                margin: 10px 0;
+                margin: 10px 0 25px 0;
                 font-weight: 300;
                 float: left;
+                color: coral;
+            }
+
+            #total-results {
+                font-size: 13px;
+                margin: 10px 0 25px 0;
+                font-weight: 300;
                 color: coral;
             }
 
@@ -584,7 +595,7 @@ time, mark, audio, video {
 }
 
 .dark {
-    background-color: #000000;
+    background-color: #15202b;
     text-shadow: none;
     box-shadow: none;
     transition: background 0.5s;
@@ -598,12 +609,15 @@ time, mark, audio, video {
         color: white !important;
     }
 
-    .logo, .wrapper {
-        background-color: #000000;
+    .logo, .wrapper, input, .modal-content, #modal-body, #movie-info {
+        background-color: #15202b;
     }
 
-    .modal-content, #modal-body, #movie-info {
-        background-color: #15202b
+    .movies-container {
+        background-color: #000000;
+        div, header, ul, li, figcaption, h2, a, figure, span {
+            background-color: #000000;
+        }
     }
 
     #movie-title {

@@ -115,7 +115,6 @@ const searchMovie = numberMovies => {
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${keywords}&page=${currentPage}`)
     .then(res => res.json())
     .then(res => {
-      const searchResults = res.results
       const container = document.getElementById('search-results-list')
       container.innerHTML = ''
       let hideCategories = document.getElementById('categories-div')
@@ -130,13 +129,15 @@ const searchMovie = numberMovies => {
         let figure = document.createElement('figure')
         let image = document.createElement('img')
         let movieTitle = document.createElement('figcaption')
-        image.src = `https://image.tmdb.org/t/p/w300${searchResults[num].poster_path}`
-        movieTitle.innerText = searchResults[num].title
+        let totalResults = document.getElementById('total-results')
+        totalResults.innerText = `${res.total_results} results`
+        image.src = `https://image.tmdb.org/t/p/w300${res.results[num].poster_path}`
+        movieTitle.innerText = res.results[num].title
         figure.appendChild(image)
         figure.appendChild(movieTitle)
         anchor.appendChild(figure)
         anchor.onclick = () => {
-          let movieId = searchResults[num].id
+          let movieId = res.results[num].id
           toggleModal(movieId)
           fillModal(movieId)
         }
@@ -176,4 +177,6 @@ const toggleLights = () => {
   let topRatedIcon = document.getElementById('top-rated-icon').src = '../movies/assets/top_rated-darksvg.svg'
   let upcomingIcon = document.getElementById('upcoming-icon').src = '../movies/assets/upcoming-dark.svg'
   let nowPlayingIcon = document.getElementById('now-playing-icon').src = '../movies/assets/now_playing-dark.svg'
+  let modal = document.getElementById('modal')
+  modal.setAttribute('style', 'background-color: #000')
 }
