@@ -15,6 +15,10 @@ html {
         color: white !important;
     }
 
+    .main-header::before {
+        background: rgba(15, 15, 15, 0.7) !important;
+    }
+
     .movies-container, .modal {
         background-color: #000000;
 

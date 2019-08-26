@@ -12,6 +12,9 @@ html h1, html h2, html h3, html p, html span, html figcaption, html input, html 
 html p, html span {
   color: white !important;
 }
+html .main-header::before {
+  background: rgba(15, 15, 15, 0.7) !important;
+}
 html .movies-container, html .modal {
   background-color: #000000;
 }
