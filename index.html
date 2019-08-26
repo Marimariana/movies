@@ -21,7 +21,7 @@
                 <li class='nav-item'>
                     <a href="" class="nav-link" onclick="viewPopularMovies()">
                         <div class="wrapper">
-                            <img src="assets/popular.svg" class="svg">
+                            <img src="assets/popular.svg" class="svg" id="popular-icon">
                             <span class="title-popular">POPULAR</span>
                         </div>
                     </a>
@@ -29,7 +29,7 @@
                 <li class='nav-item'>
                     <a href="/top-rated" class="nav-link">
                         <div class="wrapper">
-                            <img src="assets/top_rated.svg" class="svg">
+                            <img src="assets/top_rated.svg" class="svg" id="top-rated-icon">
                             <span class="title-toprated">TOP RATED</span>
                         </div>
                     </a>
@@ -37,7 +37,7 @@
                 <li class='nav-item'>
                     <a href="/upcoming" class="nav-link">
                         <div class="wrapper">
-                            <img src="assets/upcoming.svg" class="svg">
+                            <img src="assets/upcoming.svg" class="svg" id="upcoming-icon">
                             <span class="title-upcoming">UPCOMING</span>
                         </div>
                     </a>
@@ -45,7 +45,7 @@
                 <li class='nav-item'>
                     <a href="/now-playing" class="nav-link">
                         <div class="wrapper">
-                            <img src="assets/now_playing.svg" class="svg">
+                            <img src="assets/now_playing.svg" class="svg" id="now-playing-icon">
                             <span class="title-nowplaying">NOW PLAYING</span>
                         </div>
                     </a>
@@ -54,9 +54,10 @@
         </nav>
         <header class="search">
             <div class="wrapper">
-                <img src="assets/search.svg" class="search-icon">
+                <a class="search-icon"></a>
                 <input type="text" placeholder="Search for a movie..." id="search-input"
                     onkeypress="handleKeyPress(event)">
+                <a class="lightswitch" onclick="toggleLights()"></a>
                 <a class="hamburger" id="hamburger" onclick="toggleMenu()"></a>
             </div>
         </header>

@@ -168,3 +168,12 @@ const toggleMenu = () => {
   let hamburger = document.getElementById('hamburger')
   hamburger.classList.toggle('close-icon')
 }
+
+const toggleLights = () => {
+  let everything = document.querySelectorAll('*')
+  everything.forEach(item => item.classList.toggle('dark'))
+  let popularIcon = document.getElementById('popular-icon').src = '../movies/assets/popular-dark.svg'
+  let topRatedIcon = document.getElementById('top-rated-icon').src = '../movies/assets/top_rated-darksvg.svg'
+  let upcomingIcon = document.getElementById('upcoming-icon').src = '../movies/assets/upcoming-dark.svg'
+  let nowPlayingIcon = document.getElementById('now-playing-icon').src = '../movies/assets/now_playing-dark.svg'
+}
