@@ -170,6 +170,20 @@ const toggleMenu = () => {
   hamburger.classList.toggle('close-icon')
 }
 
+//MODO OSCURO
+const toggleMode = sheet => {
+  document.getElementById('theme').setAttribute('href', sheet)
+  let parsedData = JSON.stringify(sheet)
+  window.localStorage.setItem("sheet", parsedData)
+}
+
+const getTheme = () => {
+  let selectedTheme = window.localStorage.getItem("sheet")
+   JSON.parse(selectedTheme)
+   console.log(selectedTheme)
+   document.getElementById('theme').setAttribute('href', selectedTheme)
+}
+
 //Selectores de categoria
 const selectCategory = (category) => {
   fetch(`https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}&page=${currentPage}`)

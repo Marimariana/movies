@@ -57,6 +57,8 @@
                 <img src="assets/search.svg" class="search-icon">
                 <input type="text" placeholder="Search for a movie..." id="search-input"
                     onkeypress="handleKeyPress(event)">
+                <button type="button" class="lightswitch" onclick="toggleMode('styles/dark-theme.css')" id="dark-mode-btn"></button>
+                <button type="button" class="lightswitch" onclick="toggleMode('styles/style.css')" id="light-mode-btn"></button>
                 <a class="hamburger" id="hamburger" onclick="toggleMenu()"></a>
             </div>
         </header>
@@ -65,8 +67,8 @@
                 <div class="movies-container hide" id="search-results-div">
                     <div class="movies hide" id="search-results">
                         <header class="movies-header" id="movies-header">
-                        <h2 id='title'></h2>
-                        <span id="total-results"></span>
+                            <h2 id='title'></h2>
+                            <span id="total-results"></span>
                         </header>
                         <ul class='movies-list' id="search-results-list">
 
