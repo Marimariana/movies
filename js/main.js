@@ -60,8 +60,7 @@ const fillModal = movieId => {
   fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`)
     .then(res => res.json())
     .then(res => {
-      console.log(res)
-      document.title = `${res.title} - TMDb` // AGREGAR CAMBIO DE TITULO PARA CADA PANTALLA
+      document.title = `${res.title} - TMDb`
       let modalHeader = document.getElementById('modal-header')
       modalHeader.innerHTML = ''
       modalHeader.style.backgroundImage = "url(" + `https://image.tmdb.org/t/p/w500${res.backdrop_path}` + ")"
@@ -123,6 +122,8 @@ const searchMovie = numberMovies => {
       resultsDiv.classList.remove('hide')
       let resultsContainer = document.getElementById('search-results')
       resultsContainer.classList.remove('hide')
+      let totalResults = document.getElementById('total-results')
+      totalResults.innerText = `${res.total_results} results`
       titleName()
       numberMovies.forEach(num => {
         let li = document.createElement('li')
@@ -130,8 +131,6 @@ const searchMovie = numberMovies => {
         let figure = document.createElement('figure')
         let image = document.createElement('img')
         let movieTitle = document.createElement('figcaption')
-        let totalResults = document.getElementById('total-results')
-        totalResults.innerText = `${res.total_results} results`
         image.src = `https://image.tmdb.org/t/p/w300${res.results[num].poster_path}`
         movieTitle.innerText = res.results[num].title
         figure.appendChild(image)
@@ -271,4 +270,6 @@ const setButton = (container, category) => {
      return currentPage
    }
    container.parentNode.appendChild(loadMoreNode)
+   let pageNumber = document.getElementById('page-number')
+   pageNumber.innerText = `Page ${currentPage}`
  }

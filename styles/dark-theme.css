@@ -82,6 +82,9 @@ html #search-results button:hover {
   background-color: white !important;
   color: #bc3b69 !important;
 }
+html #page-number, html #total-results {
+  color: #bc3b69 !important;
+}
 html #popular-icon {
   background-image: url("../assets/popular-dark.svg") !important;
 }

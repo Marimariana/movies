@@ -323,6 +323,12 @@ time, mark, audio, video {
   font-weight: 300;
   color: coral;
 }
+.movies-container .movies .movies-header #page-number {
+  font-size: 13px;
+  margin: 10px 0 25px 0;
+  font-weight: 300;
+  color: coral;
+}
 .movies-container .movies .movies-header .view-all {
   font-size: 12px;
   font-weight: 300;

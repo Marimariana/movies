@@ -103,6 +103,10 @@ html {
         }
     }
 
+    #page-number, #total-results {
+        color: #bc3b69 !important;
+    } 
+
     #popular-icon {
         background-image: url('../assets/popular-dark.svg') !important;
     }
