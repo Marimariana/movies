@@ -234,19 +234,9 @@ const setButton = (container,category) => {
   const loadMoreNode = document.createElement("button")
   loadMoreNode.innerText="Give me more"
   loadMoreNode.onclick=()=>{
-      loadMore(category,currentPage)
+      selectCategory(category)
       currentPage++
       return currentPage
   }
   container.parentNode.appendChild(loadMoreNode)
-}
-const loadMore = (category,currentPage) => {
-  const container = document.getElementById("results")
-  let url
-  category === "popular"||category==="top_rated"||category==="upcoming"||category==="now_playing"
-      ?url=`https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}&page=${currentPage}`
-      :url=`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${category}&page=${currentPage}`
-  fetch(url)
-      .then(response => response.json())
-      .then(res => populateList(res.results,container))
 }
