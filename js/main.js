@@ -123,6 +123,7 @@ const searchMovie = numberMovies => {
       resultsDiv.classList.remove('hide')
       let resultsContainer = document.getElementById('search-results')
       resultsContainer.classList.remove('hide')
+      titleName()
       numberMovies.forEach(num => {
         let li = document.createElement('li')
         let anchor = document.createElement('a')
@@ -170,6 +171,7 @@ const toggleMenu = () => {
   hamburger.classList.toggle('close-icon')
 }
 
+//MODO OSCURO
 const toggleMode = sheet => {
   document.getElementById('theme').setAttribute('href', sheet)
   let parsedData = JSON.stringify(sheet)
@@ -181,4 +183,75 @@ const getTheme = () => {
    JSON.parse(selectedTheme)
    console.log(selectedTheme)
    document.getElementById('theme').setAttribute('href', selectedTheme)
+}
+
+//Selectores de categoria
+const selectCategory = (category) => {
+  fetch(`https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}&page=${currentPage}`)
+    .then(res => res.json())
+    .then(res => {
+      //realizar funcion aparte
+      const container = document.getElementById('search-results-list')
+      container.innerHTML = ''
+      let hideCategories = document.getElementById('categories-div')
+      hideCategories.classList.add('hide')
+      let resultsDiv = document.getElementById('search-results-div')
+      resultsDiv.classList.remove('hide')
+      let resultsContainer = document.getElementById('search-results')
+      resultsContainer.classList.remove('hide')
+      titleName (category)
+      previewAll.forEach(num => {
+        let li = document.createElement('li')
+        let anchor = document.createElement('a')
+        let figure = document.createElement('figure')
+        let image = document.createElement('img')
+        let movieTitle = document.createElement('figcaption')
+        image.src = `https://image.tmdb.org/t/p/w300${res.results[num].poster_path}`
+        movieTitle.innerText = res.results[num].title
+        figure.appendChild(image)
+        figure.appendChild(movieTitle)
+        anchor.appendChild(figure)
+        anchor.onclick = () => {
+          let movieId = res.results[num].id
+          toggleModal(movieId)
+          fillModal(movieId)
+        }
+        li.appendChild(anchor)
+        container.appendChild(li)
+      })
+      setButton(container, category)
+    })
+    
+}
+//Titulos de cabecera 
+const titleName = (category) => {
+  const title = document.getElementById('title')
+  switch (category) {
+    case "popular":
+        title.innerText="Popular Movies";
+    break;
+    case "top_rated":
+        title.innerText="Top Movies";
+    break;
+    case "upcoming":
+        title.innerText="Upcoming Movies"
+    break;
+    case "now_playing":
+        title.innerText="Now playing Movies"
+    break;
+    default: 
+        title.innerText="Search Results"
+}
+}
+
+// Boton para sumar más peliculas
+const setButton = (container,category) => {
+  const loadMoreNode = document.createElement("button")
+  loadMoreNode.innerText="Give me more"
+  loadMoreNode.onclick=()=>{
+      selectCategory(category)
+      currentPage++
+      return currentPage
+  }
+  container.parentNode.appendChild(loadMoreNode)
 }

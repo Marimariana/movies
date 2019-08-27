@@ -407,6 +407,32 @@ time, mark, audio, video {
     margin-bottom: 5%;
   }
 }
+.movies-container #search-results button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 15px auto;
+  border: solid 1px coral;
+  background-color: coral;
+  width: 15vw;
+  height: 8vh;
+  border-radius: 10px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+}
+@media screen and (max-width: 770px) {
+  .movies-container #search-results button {
+    width: 30vw;
+  }
+}
+.movies-container #search-results button:hover {
+  background-color: white;
+  color: coral;
+  transition: ease-in 0.5s;
+}
 
 .modal {
   position: fixed;
@@ -484,7 +510,7 @@ time, mark, audio, video {
   z-index: 0;
   width: 100%;
   height: 350px;
-  background: rgba(29, 66, 60, 0.9);
+  background: rgba(45, 18, 2, 0.9);
 }
 @media screen and (max-width: 770px) {
   .modal .modal-content #modal-header::before {
