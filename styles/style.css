@@ -112,6 +112,11 @@ time, mark, audio, video {
   flex-direction: column;
   align-items: center;
 }
+.nav .nav-list .nav-link .wrapper button {
+  width: 26px;
+  height: 26px;
+  background: transparent;
+}
 .nav .nav-list .nav-link .wrapper img {
   width: 26px;
   height: 26px;
@@ -123,6 +128,26 @@ time, mark, audio, video {
   color: #fa9773;
   font-weight: lighter;
   letter-spacing: 0.5px;
+}
+.nav .nav-list .nav-link .wrapper #popular-icon {
+  background-image: url("../assets/popular.svg");
+  border: none;
+  background-repeat: no-repeat;
+}
+.nav .nav-list .nav-link .wrapper #top-rated-icon {
+  background-image: url("../assets/top_rated.svg");
+  border: none;
+  background-repeat: no-repeat;
+}
+.nav .nav-list .nav-link .wrapper #upcoming-icon {
+  background-image: url("../assets/upcoming.svg");
+  border: none;
+  background-repeat: no-repeat;
+}
+.nav .nav-list .nav-link .wrapper #now-playing-icon {
+  background-image: url("../assets/now_playing.svg");
+  border: none;
+  background-repeat: no-repeat;
 }
 
 .search {
@@ -149,6 +174,28 @@ time, mark, audio, video {
   .search .wrapper {
     height: 50px;
   }
+}
+.search .wrapper #dark-mode-btn {
+  background-image: url("../assets/lightbulb-solid.svg");
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 55px;
+  height: 50px;
+  position: absolute;
+  right: 90px;
+  top: 10px;
+  transform: scale(0.6);
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+@media screen and (max-width: 770px) {
+  .search .wrapper #dark-mode-btn {
+    top: 0;
+  }
+}
+.search .wrapper #light-mode-btn {
+  border: none;
 }
 .search .wrapper .hamburger {
   display: none;
@@ -248,6 +295,7 @@ time, mark, audio, video {
   font-weight: 500;
   z-index: 900;
   color: coral;
+  background-color: transparent;
 }
 
 .movies-container {
@@ -263,9 +311,15 @@ time, mark, audio, video {
 }
 .movies-container .movies .movies-header h2 {
   font-size: 18px;
-  margin: 10px 0;
+  margin: 10px 0 25px 0;
   font-weight: 300;
   float: left;
+  color: coral;
+}
+.movies-container .movies .movies-header #total-results {
+  font-size: 13px;
+  margin: 10px 0 25px 0;
+  font-weight: 300;
   color: coral;
 }
 .movies-container .movies .movies-header .view-all {

@@ -127,7 +127,11 @@ time, mark, audio, video {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-
+                    button {
+                        width: 26px;
+                        height: 26px;
+                        background: transparent;
+                    }
                     img {
                         width: 26px;
                         height: 26px;
@@ -140,6 +144,29 @@ time, mark, audio, video {
                         color: $clear-coral;
                         font-weight: lighter;
                         letter-spacing: .5px;
+                    }
+                    #popular-icon {
+                        background-image: url('../assets/popular.svg');
+                        border: none;
+                        background-repeat: no-repeat;
+                    }
+
+                    #top-rated-icon {
+                        background-image: url('../assets/top_rated.svg');
+                        border: none;
+                        background-repeat: no-repeat;
+                    }
+
+                    #upcoming-icon {
+                        background-image: url('../assets/upcoming.svg');
+                        border: none;
+                        background-repeat: no-repeat;
+                    }
+
+                    #now-playing-icon {
+                        background-image: url('../assets/now_playing.svg');
+                        border: none;
+                        background-repeat: no-repeat;
                     }
                 }
             }
@@ -167,6 +194,29 @@ time, mark, audio, video {
         box-sizing: border-box;
         @media screen and (max-width: 770px) {
             height: 50px;
+        }
+
+        #dark-mode-btn {
+            background-image: url("../assets/lightbulb-solid.svg");
+            background-repeat: no-repeat;
+            display: inline-block;
+            width: 55px;
+            height: 50px;
+            position: absolute;
+            right: 90px;
+            top: 10px;
+            transform: scale(0.6);
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+
+            @media screen and (max-width: 770px) {
+                top: 0;
+            }
+        }
+
+        #light-mode-btn {
+            border:none;
         }
 
         .hamburger {
@@ -272,6 +322,7 @@ time, mark, audio, video {
             font-weight: 500;
             z-index: 900;
             color: coral;
+            background-color: transparent;
         }
     }
 }
@@ -290,9 +341,16 @@ time, mark, audio, video {
 
             h2 {
                 font-size: 18px;
-                margin: 10px 0;
+                margin: 10px 0 25px 0;
                 font-weight: 300;
                 float: left;
+                color: coral;
+            }
+
+            #total-results {
+                font-size: 13px;
+                margin: 10px 0 25px 0;
+                font-weight: 300;
                 color: coral;
             }
 
