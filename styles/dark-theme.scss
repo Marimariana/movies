@@ -37,7 +37,7 @@ html {
 
     .close-button {
         background: transparent !important;
-        
+
         &:hover {
             background: black !important;
         }
@@ -45,6 +45,7 @@ html {
 
     #movie-title {
         background-color: transparent !important;
+
         p {
             color: #bc3b69 !important;
         }
@@ -72,21 +73,34 @@ html {
 
     #light-mode-btn {
         background-image: url("../assets/lightbulb-regular.svg");
-            background-repeat: no-repeat;
-            display: inline-block;
-            width: 55px;
-            height: 50px;
-            position: absolute;
-            right: 90px;
-            top: 10px;
-            transform: scale(0.6);
-            cursor: pointer;
-            border: none;
-            background-color: transparent;
+        background-repeat: no-repeat;
+        display: inline-block;
+        width: 55px;
+        height: 50px;
+        position: absolute;
+        right: 90px;
+        top: 10px;
+        transform: scale(0.6);
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
 
-            @media screen and (max-width: 770px) {
-                top: 0;
+        @media screen and (max-width: 770px) {
+            top: 0;
+        }
+    }
+
+    #search-results {
+        button {
+            border: solid 1px #bc3b69 !important;
+            background-color: #bc3b69 !important;
+            color: white !important;
+
+            &:hover {
+                background-color: white !important;
+                color: #bc3b69 !important;
             }
+        }
     }
 
     #popular-icon {
@@ -95,16 +109,16 @@ html {
 
     #top-rated-icon {
         background-image: url('../assets/top_rated-darksvg.svg') !important;
-        
+
     }
 
     #upcoming-icon {
         background-image: url('../assets/upcoming-dark.svg') !important;
-        
+
     }
 
     #now-playing-icon {
         background-image: url('../assets/now_playing-dark.svg') !important;
-        
+
     }
 }

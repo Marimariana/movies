@@ -2,7 +2,7 @@
 const apiKey = '0f240948bebe063e14528f450a77842f'
 const previewHome = [0, 1, 2, 3, 4]
 const previewAll = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
-const currentPage = 1
+let currentPage = 1
 
 //iniciador
 const initialize = () => {
@@ -42,7 +42,7 @@ const displayMovies = (id, category, numberMovies) => {
 }
 
 //modal de información
-const toggleModal = (movieId) => {
+const toggleModal = movieId => {
   const modal = document.querySelector(".modal")
   modal.classList.toggle("show-modal")
   const closeButton = document.querySelector(".close-button")
@@ -56,7 +56,7 @@ const toggleModal = (movieId) => {
   document.title = 'TMDb'
 }
 
-const fillModal = (movieId) => {
+const fillModal = movieId => {
   fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`)
     .then(res => res.json())
     .then(res => {
@@ -171,6 +171,18 @@ const toggleMenu = () => {
   hamburger.classList.toggle('close-icon')
 }
 
+const closeModal = () => {
+  const modal = document.querySelector(".modal")
+  modal.classList.remove("show-modal")
+}
+
+const closeMenu = () => {
+  let menu = document.getElementById('menu')
+  if (menu.classList.contains('open')) {
+    toggleMenu()
+  }
+}
+
 //MODO OSCURO
 const toggleMode = sheet => {
   document.getElementById('theme').setAttribute('href', sheet)
@@ -180,17 +192,19 @@ const toggleMode = sheet => {
 
 const getTheme = () => {
   let selectedTheme = window.localStorage.getItem("sheet")
-   JSON.parse(selectedTheme)
+   let parsedTheme = JSON.parse(selectedTheme)
    console.log(selectedTheme)
-   document.getElementById('theme').setAttribute('href', selectedTheme)
+   document.getElementById('theme').setAttribute('href', parsedTheme)
 }
 
 //Selectores de categoria
-const selectCategory = (category) => {
+const selectCategory = category => {
   fetch(`https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}&page=${currentPage}`)
     .then(res => res.json())
     .then(res => {
       //realizar funcion aparte
+      closeModal()
+      closeMenu()
       const container = document.getElementById('search-results-list')
       container.innerHTML = ''
       let hideCategories = document.getElementById('categories-div')
@@ -199,7 +213,7 @@ const selectCategory = (category) => {
       resultsDiv.classList.remove('hide')
       let resultsContainer = document.getElementById('search-results')
       resultsContainer.classList.remove('hide')
-      titleName (category)
+      titleName(category)
       previewAll.forEach(num => {
         let li = document.createElement('li')
         let anchor = document.createElement('a')
@@ -219,39 +233,42 @@ const selectCategory = (category) => {
         li.appendChild(anchor)
         container.appendChild(li)
       })
-      setButton(container, category)
-    })
-    
+        setButton(container, category)
+    })  
 }
 //Titulos de cabecera 
-const titleName = (category) => {
+const titleName = category => {
   const title = document.getElementById('title')
   switch (category) {
     case "popular":
-        title.innerText="Popular Movies";
-    break;
+      title.innerText = "Popular Movies";
+      document.title = "Popular Movies - TMDb";
+      break;
     case "top_rated":
-        title.innerText="Top Movies";
-    break;
+      title.innerText = "Top Movies";
+      document.title = "Top Movies - TMDb";
+      break;
     case "upcoming":
-        title.innerText="Upcoming Movies"
-    break;
+      title.innerText = "Upcoming Movies"
+      document.title = "Upcoming Movies - TMDb"
+      break;
     case "now_playing":
-        title.innerText="Now playing Movies"
-    break;
-    default: 
-        title.innerText="Search Results"
-}
+      title.innerText = "Now Playing Movies"
+      document.title = "Now Playing Movies - TMDb"
+      break;
+    default:
+      title.innerText = "Search Results"
+  }
 }
 
 // Boton para sumar más peliculas
-const setButton = (container,category) => {
+const setButton = (container, category) => {
   const loadMoreNode = document.createElement("button")
-  loadMoreNode.innerText="Give me more"
-  loadMoreNode.onclick=()=>{
-      selectCategory(category)
-      currentPage++
-      return currentPage
-  }
-  container.parentNode.appendChild(loadMoreNode)
-}
+   loadMoreNode.innerText = "Give me more"
+   loadMoreNode.onclick = () => {
+     selectCategory(category)
+     currentPage++
+     return currentPage
+   }
+   container.parentNode.appendChild(loadMoreNode)
+ }

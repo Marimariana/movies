@@ -102,6 +102,7 @@ time, mark, audio, video {
                 align-items: center;
                 justify-content: center;
                 border-bottom: 1px solid #f8f8f8;
+                cursor: pointer;
 
                 &:hover .svg {
                     transform: scale(1.5);
@@ -452,6 +453,7 @@ time, mark, audio, video {
             }
         }
     }
+
     #search-results {
         button {
             display: flex;
@@ -465,18 +467,18 @@ time, mark, audio, video {
             border-radius: 10px;
             color: white;
             font-size: 15px;
-            font-weight: bold;
             font-family: $font;
             cursor: pointer;
+
             @media screen and (max-width: 770px) {
                 width: 30vw;
             }
+
             &:hover {
                 background-color: white;
                 color: coral;
                 transition: ease-in 0.5s;
-            }
-          
+            }  
         }
     }
 }

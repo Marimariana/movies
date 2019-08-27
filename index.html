@@ -13,15 +13,15 @@
     <title>TMDb</title>
 </head>
 
-<body onload="initialize()">
+<body onload="initialize()" onload="getTheme()">
     <div class="container">
         <nav class="nav">
-            <a href="#" class="logo"><img src="assets/iso_blanco_transparent.svg" alt="Ada" onclick="initialize()"></a>
+            <a class="logo" href="index.html"><img src="assets/iso_blanco_transparent.svg" alt="Ada"></a>
             <ul class="nav-list closed" id="menu">
                 <li class='nav-item'>
-                    <a href="" class="nav-link" onclick="selectCategory('popular')">
+                    <a class="nav-link" onclick="selectCategory('popular')">
                         <div class="wrapper">
-                            <button type="button" svg" id="popular-icon"></button>
+                            <button type="button" class="svg" id="popular-icon"></button>
                             <span class="title-popular">POPULAR</span>
                         </div>
                     </a>
@@ -83,7 +83,7 @@
                         <div class="movies">
                             <header class="movies-header">
                                 <h2>Popular Movies</h2>
-                                <a class="view-all" onclick="selectCategory('popular')">View All</a>
+                                <a onclick="selectCategory('popular')" class="view-all">View All</a>
                             </header>
                             <ul class='movies-list' id="popular-movies">
 
@@ -101,7 +101,7 @@
                         <div class="movies">
                             <header class="movies-header">
                                 <h2>Upcoming Movies</h2>
-                                <a onclick="selectCategory('upcoming')" href="" class="view-all">View All</a>
+                                <a onclick="selectCategory('upcoming')" class="view-all">View All</a>
                             </header>
                             <ul class='movies-list' id="upcoming-movies">
 
@@ -110,7 +110,7 @@
                         <div class="movies">
                             <header class="movies-header">
                                 <h2>Now Playing Movies</h2>
-                                <a onclick="selectCategory('now_playing')" href="" class="view-all">View All</a>
+                                <a onclick="selectCategory('now_playing')" class="view-all">View All</a>
                             </header>
                             <ul class='movies-list' id="now-playing-movies">
 

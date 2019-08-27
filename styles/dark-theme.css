@@ -73,6 +73,15 @@ html #light-mode-btn {
     top: 0;
   }
 }
+html #search-results button {
+  border: solid 1px #bc3b69 !important;
+  background-color: #bc3b69 !important;
+  color: white !important;
+}
+html #search-results button:hover {
+  background-color: white !important;
+  color: #bc3b69 !important;
+}
 html #popular-icon {
   background-image: url("../assets/popular-dark.svg") !important;
 }
