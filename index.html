@@ -13,7 +13,7 @@
     <title>TMDb</title>
 </head>
 
-<body onload="initialize()" onload="getTheme()">
+<body onload="initialize()">
     <div class="container">
         <nav class="nav">
             <a class="logo" href="index.html"><img src="assets/iso_blanco_transparent.svg" alt="Ada"></a>
@@ -69,11 +69,14 @@
                         <header class="movies-header" id="movies-header">
                             <h2 id='title'></h2>
                             <span id="total-results"></span>
-                            <span id="page-number"></span>
+                            <span id="page-number" class="hide"></span>
                         </header>
                         <ul class='movies-list' id="search-results-list">
 
                         </ul>
+                        <div id="btn-container">
+
+                        </div>
                     </div>
                 </div>
                 <div id="categories-div">

@@ -124,6 +124,8 @@ const searchMovie = numberMovies => {
       resultsContainer.classList.remove('hide')
       let totalResults = document.getElementById('total-results')
       totalResults.innerText = `${res.total_results} results`
+      let pageNumber = document.getElementById('page-number')
+      pageNumber.classList.remove('hide')
       titleName()
       numberMovies.forEach(num => {
         let li = document.createElement('li')
@@ -185,27 +187,18 @@ const closeMenu = () => {
 //MODO OSCURO
 const toggleMode = sheet => {
   document.getElementById('theme').setAttribute('href', sheet)
-  let parsedData = JSON.stringify(sheet)
-  window.localStorage.setItem("sheet", parsedData)
-}
-
-const getTheme = () => {
-  let selectedTheme = window.localStorage.getItem("sheet")
-   let parsedTheme = JSON.parse(selectedTheme)
-   console.log(selectedTheme)
-   document.getElementById('theme').setAttribute('href', parsedTheme)
 }
 
 //Selectores de categoria
 const selectCategory = category => {
+  const container = document.getElementById('search-results-list')
+  container.innerHTML = ''
   fetch(`https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}&page=${currentPage}`)
     .then(res => res.json())
     .then(res => {
       //realizar funcion aparte
       closeModal()
       closeMenu()
-      const container = document.getElementById('search-results-list')
-      container.innerHTML = ''
       let hideCategories = document.getElementById('categories-div')
       hideCategories.classList.add('hide')
       let resultsDiv = document.getElementById('search-results-div')
@@ -232,7 +225,7 @@ const selectCategory = category => {
         li.appendChild(anchor)
         container.appendChild(li)
       })
-        setButton(container, category)
+        setButton(category)
     })  
 }
 //Titulos de cabecera 
@@ -261,15 +254,17 @@ const titleName = category => {
 }
 
 // Boton para sumar más peliculas
-const setButton = (container, category) => {
+const setButton = category => {
+  const container = document.getElementById("btn-container")
+  container.innerHTML = ''
   const loadMoreNode = document.createElement("button")
    loadMoreNode.innerText = "Give me more"
    loadMoreNode.onclick = () => {
      selectCategory(category)
      currentPage++
-     return currentPage
+     return console.log(currentPage)
    }
-   container.parentNode.appendChild(loadMoreNode)
+   container.appendChild(loadMoreNode)
    let pageNumber = document.getElementById('page-number')
    pageNumber.innerText = `Page ${currentPage}`
  }
