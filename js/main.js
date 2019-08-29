@@ -114,6 +114,7 @@ const searchMovie = numberMovies => {
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${keywords}&page=${currentPage}`)
       .then(res => res.json())
       .then(res => {
+        console.log(res)
         const container = document.getElementById('search-results-list')
         container.innerHTML = ''
         let hideCategories = document.getElementById('categories-div')
@@ -144,7 +145,22 @@ const searchMovie = numberMovies => {
           li.appendChild(anchor)
           container.appendChild(li)
         })
-        setButton()
+
+        const createButton = () => {
+          const container = document.getElementById("btn-container")
+          // container.innerHTML = ''
+          const loadMoreNode = document.createElement("button")
+          loadMoreNode.innerText = "Give me more"
+          loadMoreNode.onclick = () => {
+            searchMovie()
+            currentPage++
+            return currentPage
+          }
+          container.appendChild(loadMoreNode)
+          let pageNumber = document.getElementById('page-number')
+          pageNumber.innerText = `Page ${currentPage}`
+        }
+        createButton()
       })
   }
 }
@@ -225,7 +241,9 @@ const selectCategory = category => {
         li.appendChild(anchor)
         container.appendChild(li)
       })
-      setButton(category)
+      if (currentPage < res.total_pages) {
+        setButton(category)
+      }
     })  
 }
 //Titulos de cabecera 
