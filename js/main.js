@@ -195,7 +195,6 @@ const selectCategory = category => {
   fetch(`https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}&page=${currentPage}`)
     .then(res => res.json())
     .then(res => {
-      //realizar funcion aparte
       closeModal()
       closeMenu()
       let hideCategories = document.getElementById('categories-div')
@@ -204,6 +203,8 @@ const selectCategory = category => {
       resultsDiv.classList.remove('hide')
       let resultsContainer = document.getElementById('search-results')
       resultsContainer.classList.remove('hide')
+      let totalResults = document.getElementById('total-results')
+      totalResults.innerText = `${res.total_results} results`
       titleName(category)
       previewAll.forEach(num => {
         let li = document.createElement('li')
