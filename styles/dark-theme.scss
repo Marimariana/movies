@@ -1,0 +1,128 @@
+@import "style.css";
+
+html {
+    background-color: #15202b;
+    text-shadow: none;
+    box-shadow: none;
+    transition: background 0.5s;
+    color: white;
+
+    h1, h2, h3, p, span, figcaption, input, a  {
+        color: #bc3b69 !important;
+    }
+
+    p, span  {
+        color: white !important;
+    }
+
+    .main-header::before {
+        background: rgba(15, 15, 15, 0.7) !important;
+    }
+
+    .movies-container, .modal {
+        background-color: #000000;
+
+        div, header, ul, li, figcaption, h2, a, figure {
+            background-color: #000000 !important;
+        }
+
+        .modal-content {
+            background-color: #15202b !important;            
+        }
+    }
+
+    .logo, .wrapper, input, #modal-body, #movie-info, #menu {
+        background-color: #15202b !important;
+    }
+
+    .close-button {
+        background: transparent !important;
+
+        &:hover {
+            background: black !important;
+        }
+    }
+
+    #movie-title {
+        background-color: transparent !important;
+
+        p {
+            color: #bc3b69 !important;
+        }
+
+        span {
+            background-color: transparent !important;
+        }
+    }
+
+    .lightswitch {
+        background-image: url('../assets/lightbulb-regular.svg') !important;
+    }
+
+    .hamburger {
+        background-image: url('../assets/bars-solid-dark.svg') !important;
+    }
+
+    .search-icon {
+        background-image: url('../assets/search-dark.svg') !important;
+    }
+
+    #dark-mode-btn {
+        display: none;
+    }
+
+    #light-mode-btn {
+        background-image: url("../assets/lightbulb-regular.svg");
+        background-repeat: no-repeat;
+        display: inline-block;
+        width: 55px;
+        height: 50px;
+        position: absolute;
+        right: 90px;
+        top: 10px;
+        transform: scale(0.6);
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+
+        @media screen and (max-width: 770px) {
+            top: 0;
+        }
+    }
+
+    #search-results {
+        button {
+            border: solid 1px #bc3b69 !important;
+            background-color: #bc3b69 !important;
+            color: white !important;
+
+            &:hover {
+                background-color: white !important;
+                color: #bc3b69 !important;
+            }
+        }
+    }
+
+    #page-number, #total-results {
+        color: #bc3b69 !important;
+    } 
+
+    #popular-icon {
+        background-image: url('../assets/popular-dark.svg') !important;
+    }
+
+    #top-rated-icon {
+        background-image: url('../assets/top_rated-darksvg.svg') !important;
+
+    }
+
+    #upcoming-icon {
+        background-image: url('../assets/upcoming-dark.svg') !important;
+
+    }
+
+    #now-playing-icon {
+        background-image: url('../assets/now_playing-dark.svg') !important;
+
+    }
+}

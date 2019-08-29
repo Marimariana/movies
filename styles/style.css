@@ -31,7 +31,7 @@ time, mark, audio, video {
   height: 100vh;
   z-index: 999;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 770px) {
   .nav {
     width: 55px;
     height: 50px;
@@ -51,19 +51,19 @@ time, mark, audio, video {
 .nav .logo img:hover {
   transform: scale(1.04);
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 770px) {
   .nav .logo img {
     width: 35px;
     height: 31px;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 770px) {
   .nav .logo {
     height: 50px;
     width: 55px;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 770px) {
   .nav .closed {
     display: none;
   }
@@ -91,6 +91,7 @@ time, mark, audio, video {
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid #f8f8f8;
+  cursor: pointer;
 }
 .nav .nav-list .nav-link:hover .svg {
   transform: scale(1.5);
@@ -112,10 +113,10 @@ time, mark, audio, video {
   flex-direction: column;
   align-items: center;
 }
-.nav .nav-list .nav-link .wrapper img {
+.nav .nav-list .nav-link .wrapper button {
   width: 26px;
   height: 26px;
-  fill: #fa9773;
+  background: transparent;
 }
 .nav .nav-list .nav-link .wrapper span {
   font-size: 9px;
@@ -123,6 +124,26 @@ time, mark, audio, video {
   color: #fa9773;
   font-weight: lighter;
   letter-spacing: 0.5px;
+}
+.nav .nav-list .nav-link .wrapper #popular-icon {
+  background-image: url("../assets/popular.svg");
+  border: none;
+  background-repeat: no-repeat;
+}
+.nav .nav-list .nav-link .wrapper #top-rated-icon {
+  background-image: url("../assets/top_rated.svg");
+  border: none;
+  background-repeat: no-repeat;
+}
+.nav .nav-list .nav-link .wrapper #upcoming-icon {
+  background-image: url("../assets/upcoming.svg");
+  border: none;
+  background-repeat: no-repeat;
+}
+.nav .nav-list .nav-link .wrapper #now-playing-icon {
+  background-image: url("../assets/now_playing.svg");
+  border: none;
+  background-repeat: no-repeat;
 }
 
 .search {
@@ -133,7 +154,7 @@ time, mark, audio, video {
   margin-left: 95px;
   box-sizing: border-box;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 770px) {
   .search {
     height: 50px;
     margin-left: 55px;
@@ -145,15 +166,37 @@ time, mark, audio, video {
   background-color: white;
   box-sizing: border-box;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 770px) {
   .search .wrapper {
     height: 50px;
   }
 }
+.search .wrapper #dark-mode-btn {
+  background-image: url("../assets/lightbulb-solid.svg");
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 55px;
+  height: 50px;
+  position: absolute;
+  right: 90px;
+  top: 10px;
+  transform: scale(0.6);
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+@media screen and (max-width: 770px) {
+  .search .wrapper #dark-mode-btn {
+    top: 0;
+  }
+}
+.search .wrapper #light-mode-btn {
+  border: none;
+}
 .search .wrapper .hamburger {
   display: none;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 770px) {
   .search .wrapper .hamburger {
     background-image: url("../assets/bars-solid.svg");
     display: inline-block;
@@ -175,6 +218,9 @@ time, mark, audio, video {
   transform: scale(1.5);
 }
 .search .wrapper .search-icon {
+  background-image: url("../assets/search.svg");
+  background-repeat: no-repeat;
+  transform: scale(0.8);
   width: 20px;
   height: 20px;
   position: absolute;
@@ -192,7 +238,7 @@ time, mark, audio, video {
   color: #fa9773;
   box-sizing: border-box;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 770px) {
   .search .wrapper input {
     height: 50px;
     padding: 0 0 0 50px;
@@ -207,7 +253,7 @@ time, mark, audio, video {
   margin-left: 95px;
   height: 100vh;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 770px) {
   .main {
     margin-left: 0;
     padding: 50px 0 0;
@@ -237,7 +283,7 @@ time, mark, audio, video {
   height: 100%;
   background: rgba(247, 247, 247, 0.7);
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 770px) {
   .main .home .main-header {
     height: 200px;
   }
@@ -248,6 +294,7 @@ time, mark, audio, video {
   font-weight: 500;
   z-index: 900;
   color: coral;
+  background-color: transparent;
 }
 
 .movies-container {
@@ -255,16 +302,31 @@ time, mark, audio, video {
 }
 .movies-container .movies {
   padding: 35px;
+  margin-left: 20px;
 }
 .movies-container .movies .movies-header {
+  display: flex;
+  justify-content: space-between;
   overflow: hidden;
   line-height: 35px;
 }
 .movies-container .movies .movies-header h2 {
   font-size: 18px;
-  margin: 10px 0;
+  margin: 10px 0 25px 0;
   font-weight: 300;
   float: left;
+  color: coral;
+}
+.movies-container .movies .movies-header #total-results {
+  font-size: 13px;
+  margin: 10px 0 25px 0;
+  font-weight: 300;
+  color: coral;
+}
+.movies-container .movies .movies-header #page-number {
+  font-size: 13px;
+  margin: 10px 0 25px 0;
+  font-weight: 300;
   color: coral;
 }
 .movies-container .movies .movies-header .view-all {
@@ -287,13 +349,28 @@ time, mark, audio, video {
 .movies-container .movies .movies-list {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   list-style: none;
   font-family: "Roboto", sans-serif;
   text-align: center;
 }
 .movies-container .movies .movies-list li {
-  margin: 0 10px;
+  width: 16%;
+}
+@media screen and (max-width: 1200px) {
+  .movies-container .movies .movies-list li {
+    width: 23%;
+  }
+  .movies-container .movies .movies-list li:nth-child(5) {
+    display: none;
+  }
+}
+@media screen and (max-width: 770px) {
+  .movies-container .movies .movies-list li {
+    width: 45%;
+    margin-bottom: 5%;
+  }
 }
 .movies-container .movies .movies-list li a:hover {
   cursor: pointer;
@@ -319,6 +396,49 @@ time, mark, audio, video {
   margin-top: 10px;
   font-weight: 300;
 }
+.movies-container #search-results-list li {
+  margin-bottom: 20px;
+  width: 18%;
+}
+@media screen and (max-width: 1200px) {
+  .movies-container #search-results-list li {
+    width: 23%;
+  }
+  .movies-container #search-results-list li:nth-child(5) {
+    display: none;
+  }
+}
+@media screen and (max-width: 770px) {
+  .movies-container #search-results-list li {
+    width: 45%;
+    margin-bottom: 5%;
+  }
+}
+.movies-container #search-results button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 15px auto;
+  border: solid 1px coral;
+  background-color: coral;
+  width: 15vw;
+  height: 8vh;
+  border-radius: 10px;
+  color: white;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+}
+@media screen and (max-width: 770px) {
+  .movies-container #search-results button {
+    width: 30vw;
+  }
+}
+.movies-container #search-results button:hover {
+  background-color: white;
+  color: coral;
+  transition: ease-in 0.5s;
+}
 
 .modal {
   position: fixed;
@@ -333,6 +453,11 @@ time, mark, audio, video {
   transform: scale(1.1);
   transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
 }
+@media screen and (max-width: 770px) {
+  .modal {
+    z-index: 998;
+  }
+}
 .modal .modal-content {
   position: absolute;
   top: 50%;
@@ -340,7 +465,15 @@ time, mark, audio, video {
   transform: translate(-50%, -50%);
   background-color: white;
   padding: 1rem 1.5rem;
-  width: 768px;
+  width: 770px;
+}
+@media screen and (max-width: 770px) {
+  .modal .modal-content {
+    width: 100%;
+    height: 100%;
+    top: 58%;
+    padding: 0;
+  }
 }
 .modal .modal-content .close-button {
   float: right;
@@ -355,16 +488,21 @@ time, mark, audio, video {
   cursor: pointer;
   z-index: 999;
 }
+@media screen and (max-width: 770px) {
+  .modal .modal-content .close-button {
+    top: -14px;
+    right: 0;
+  }
+}
 .modal .modal-content .close-button:hover {
   background-color: white;
 }
 .modal .modal-content #modal-header {
   height: 349px;
-  width: 816px;
+  width: 818px;
   position: relative;
   top: -16px;
   left: -24px;
-  background-image: url("../assets/batman.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -380,12 +518,29 @@ time, mark, audio, video {
   height: 350px;
   background: rgba(45, 18, 2, 0.9);
 }
+@media screen and (max-width: 770px) {
+  .modal .modal-content #modal-header::before {
+    height: 250px;
+  }
+}
+@media screen and (max-width: 770px) {
+  .modal .modal-content #modal-header {
+    height: 250px;
+    width: 100vw;
+    left: 0;
+  }
+}
 .modal .modal-content .movie-poster {
   display: block;
   position: absolute;
-  width: calc(45% - 40px);
   top: 40px;
   left: 40px;
+  height: 100%;
+}
+@media screen and (max-width: 770px) {
+  .modal .modal-content .movie-poster {
+    display: none;
+  }
 }
 .modal .modal-content #movie-title {
   text-align: left;
@@ -393,9 +548,26 @@ time, mark, audio, video {
   font-size: 30px;
   color: white;
   margin-left: 48%;
+  margin-right: 10%;
   position: absolute;
   top: 20%;
   left: 0%;
+}
+@media screen and (max-width: 770px) {
+  .modal .modal-content #movie-title {
+    text-align: center;
+    width: 100%;
+    top: 10%;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 24px;
+  }
+}
+.modal .modal-content #movie-title span {
+  display: block;
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 10px;
 }
 .modal .modal-content #modal-body .modalHeading {
   font-size: 16px;
@@ -410,12 +582,24 @@ time, mark, audio, video {
   font-size: 14px;
   line-height: 1.8;
 }
+@media screen and (max-width: 770px) {
+  .modal .modal-content #modal-body #movie-info {
+    margin-left: 0;
+    font-size: 13px;
+  }
+}
 
 .show-modal {
   opacity: 1;
   visibility: visible;
   transform: scale(1);
   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+  position: fixed;
+  overflow: auto;
+}
+
+.hide {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */
