@@ -112,41 +112,40 @@ const searchMovie = numberMovies => {
     input.value = ''
     document.title = 'Search Results - TMDb'
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${keywords}&page=${currentPage}`)
-    .then(res => res.json())
-    .then(res => {
-      const container = document.getElementById('search-results-list')
-      container.innerHTML = ''
-      let hideCategories = document.getElementById('categories-div')
-      hideCategories.classList.add('hide')
-      let resultsDiv = document.getElementById('search-results-div')
-      resultsDiv.classList.remove('hide')
-      let resultsContainer = document.getElementById('search-results')
-      resultsContainer.classList.remove('hide')
-      let totalResults = document.getElementById('total-results')
-      totalResults.innerText = `${res.total_results} results`
-      let pageNumber = document.getElementById('page-number')
-      pageNumber.classList.remove('hide')
-      titleName()
-      numberMovies.forEach(num => {
-        let li = document.createElement('li')
-        let anchor = document.createElement('a')
-        let figure = document.createElement('figure')
-        let image = document.createElement('img')
-        let movieTitle = document.createElement('figcaption')
-        image.src = `https://image.tmdb.org/t/p/w300${res.results[num].poster_path}`
-        movieTitle.innerText = res.results[num].title
-        figure.appendChild(image)
-        figure.appendChild(movieTitle)
-        anchor.appendChild(figure)
-        anchor.onclick = () => {
-          let movieId = res.results[num].id
-          toggleModal(movieId)
-          fillModal(movieId)
-        }
-        li.appendChild(anchor)
-        container.appendChild(li)
-    })  
-    })
+      .then(res => res.json())
+      .then(res => {
+        const container = document.getElementById('search-results-list')
+        container.innerHTML = ''
+        let hideCategories = document.getElementById('categories-div')
+        hideCategories.classList.add('hide')
+        let resultsDiv = document.getElementById('search-results-div')
+        resultsDiv.classList.remove('hide')
+        let resultsContainer = document.getElementById('search-results')
+        resultsContainer.classList.remove('hide')
+        let totalResults = document.getElementById('total-results')
+        totalResults.innerText = `${res.total_results} results`
+        titleName()
+        numberMovies.forEach(num => {
+          let li = document.createElement('li')
+          let anchor = document.createElement('a')
+          let figure = document.createElement('figure')
+          let image = document.createElement('img')
+          let movieTitle = document.createElement('figcaption')
+          image.src = `https://image.tmdb.org/t/p/w300${res.results[num].poster_path}`
+          movieTitle.innerText = res.results[num].title
+          figure.appendChild(image)
+          figure.appendChild(movieTitle)
+          anchor.appendChild(figure)
+          anchor.onclick = () => {
+            let movieId = res.results[num].id
+            toggleModal(movieId)
+            fillModal(movieId)
+          }
+          li.appendChild(anchor)
+          container.appendChild(li)
+        })
+        setButton()
+      })
   }
 }
 
@@ -225,7 +224,7 @@ const selectCategory = category => {
         li.appendChild(anchor)
         container.appendChild(li)
       })
-        setButton(category)
+      setButton(category)
     })  
 }
 //Titulos de cabecera 
@@ -258,13 +257,13 @@ const setButton = category => {
   const container = document.getElementById("btn-container")
   container.innerHTML = ''
   const loadMoreNode = document.createElement("button")
-   loadMoreNode.innerText = "Give me more"
-   loadMoreNode.onclick = () => {
-     selectCategory(category)
-     currentPage++
-     return console.log(currentPage)
-   }
-   container.appendChild(loadMoreNode)
-   let pageNumber = document.getElementById('page-number')
-   pageNumber.innerText = `Page ${currentPage}`
- }
+  loadMoreNode.innerText = "Give me more"
+  loadMoreNode.onclick = () => {
+    currentPage++
+    selectCategory(category)
+    return currentPage
+  }
+  container.appendChild(loadMoreNode)
+  let pageNumber = document.getElementById('page-number')
+  pageNumber.innerText = `Page ${currentPage}`
+}
