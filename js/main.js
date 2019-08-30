@@ -116,7 +116,6 @@ const searchMovie = numberMovies => {
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${keywords}&page=${currentPage}`)
       .then(res => res.json())
       .then(res => {
-        console.log(res)
         const container = document.getElementById('search-results-list')
         container.innerHTML = ''
         let hideCategories = document.getElementById('categories-div')
@@ -147,10 +146,9 @@ const searchMovie = numberMovies => {
           li.appendChild(anchor)
           container.appendChild(li)
         })
-
         const createButton = () => {
           const container = document.getElementById("btn-container")
-          // container.innerHTML = ''
+          container.innerHTML = ''
           const loadMoreNode = document.createElement("button")
           loadMoreNode.innerText = "Give me more"
           loadMoreNode.onclick = () => {
