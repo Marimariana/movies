@@ -1,0 +1,154 @@
+.movies-container {
+    background-color: #f8f8f8;
+
+    .movies {
+        padding: 35px;
+        margin-left: 20px;
+
+        .movies-header {
+            display: flex;
+            justify-content: space-between;
+            overflow: hidden;
+            line-height: 35px;
+
+            h2 {
+                font-size: 18px;
+                margin: 10px 0 25px 0;
+                font-weight: 300;
+                float: left;
+                color: coral;
+            }
+
+            #total-results, #page-number {
+                font-size: 13px;
+                margin: 10px 0 25px 0;
+                font-weight: 300;
+                color: coral;
+            }
+
+            .view-all {
+                font-size: 12px;
+                font-weight: 300;
+                float: right;
+                line-height: 50px;
+                text-decoration: none;
+                color: $clear-coral;
+                transition: all 0.5s ease;
+                cursor: pointer;
+
+                &:hover {
+                    color: coral;
+                }
+
+                &::after {
+                    content: '\2192';
+                    padding: 5px;
+                }
+            }
+        }
+
+        .movies-list {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            list-style: none;
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+
+            li {
+                width: 16%;
+                @media screen and (max-width: 1200px) {
+                    width: 23%;
+                    &:nth-child(5) {
+                        display: none;
+                    }
+                }
+
+                @media screen and (max-width: 770px) {
+                    width: 45%;
+                    margin-bottom: 5%;
+                }
+                
+                a {
+                    &:hover {
+                        cursor: pointer;
+
+                        img {
+                            transform: scale(1.03);
+                            box-shadow: 0 0 10px rgba(49, 32, 13, 0.253);
+                            transition: opacity .5s ease, transform .5s ease;
+                        }
+
+                        figcaption {
+                            color: coral;
+                            transition: .5s ease;
+                        }
+                    }
+
+                    figure {
+                        width: 100%;
+
+                        img {
+                            width: 100%;
+                            transition: opacity .5s ease, transform .5s ease;
+                        }
+    
+                        figcaption {
+                            color: $clear-coral;
+                            margin-top: 10px;
+                            font-weight: 300;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    #search-results-list {
+        li {
+            margin-bottom: 20px;
+            width: 18%;
+            @media screen and (max-width: 1200px) {
+                width: 23%;
+                &:nth-child(5) {
+                    display: none;
+                }
+            }
+
+            @media screen and (max-width: 770px) {
+                width: 45%;
+                margin-bottom: 5%;
+            }
+        }
+    }
+
+    #search-results {
+        button {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 15px auto;
+            border: solid 1px coral;
+            background-color: coral;
+            width: 15vw;
+            height: 8vh;
+            border-radius: 10px;
+            color: white;
+            font-size: 15px;
+            font-family: $font;
+            cursor: pointer;
+
+            @media screen and (max-width: 770px) {
+                width: 30vw;
+            }
+
+            &:hover {
+                background-color: white;
+                color: coral;
+                transition: ease-in 0.5s;
+            }  
+        }
+    }
+}

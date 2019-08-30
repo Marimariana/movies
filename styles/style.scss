@@ -1,0 +1,18 @@
+// VARIABLES
+$clear-coral: rgb(250, 151, 115);
+$modal-blue: #0c2028;
+$font: 'Roboto', sans-serif;
+
+// MIXINS
+@mixin wrapper-icons($url) {
+    background-image: url($url);
+    border: none;
+    background-repeat: no-repeat;
+}
+
+@import 'components/reset';
+@import 'components/navigation';
+@import 'components/header';
+@import 'components/home';
+@import 'components/movies';
+@import 'components/modal';
