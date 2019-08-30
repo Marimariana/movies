@@ -18,7 +18,7 @@
             <a href="#" class="logo"><img src="assets/iso_blanco_transparent.svg" alt="Ada" onclick="initialize()"></a> 
             <ul class="nav-list closed" id="menu">
                 <li class='nav-item'>
-                    <a class="nav-link" onclick="selectCategory('popular')">
+                    <a class="nav-link" onclick="selectCategory('popular', 1)">
                         <div class="wrapper">
                             <button type="button" class="svg" id="popular-icon"></button>
                             <span class="title-popular">POPULAR</span>
@@ -26,7 +26,7 @@
                     </a>
                 </li>
                 <li class='nav-item'>
-                    <a class="nav-link" onclick="selectCategory('top_rated')">
+                    <a class="nav-link" onclick="selectCategory('top_rated', 1)">
                         <div class="wrapper">
                             <button type="button" class="svg" id="top-rated-icon"></button>
                             <span class="title-toprated">TOP RATED</span>
@@ -34,7 +34,7 @@
                     </a>
                 </li>
                 <li class='nav-item'>
-                    <a class="nav-link" onclick="selectCategory('upcoming')">
+                    <a class="nav-link" onclick="selectCategory('upcoming', 1)">
                         <div class="wrapper">
                             <button type="button" class="svg" id="upcoming-icon"></button>
                             <span class="title-upcoming">UPCOMING</span>
@@ -42,7 +42,7 @@
                     </a>
                 </li>
                 <li class='nav-item'>
-                    <a class="nav-link" onclick="selectCategory('now_playing')">
+                    <a class="nav-link" onclick="selectCategory('now_playing', 1)">
                         <div class="wrapper">
                             <button type="button" class="svg" id="now-playing-icon"></button>
                             <span class="title-nowplaying">NOW PLAYING</span>
@@ -86,7 +86,7 @@
                         <div class="movies">
                             <header class="movies-header">
                                 <h2>Popular Movies</h2>
-                                <a onclick="selectCategory('popular')" class="view-all">View All</a>
+                                <a onclick="selectCategory('popular', 1)" class="view-all">View All</a>
                             </header>
                             <ul class='movies-list' id="popular-movies">
 
@@ -95,7 +95,7 @@
                         <div class="movies">
                             <header class="movies-header">
                                 <h2>Top Rated Movies</h2>
-                                <a onclick="selectCategory('top_rated')" class="view-all">View All</a>
+                                <a onclick="selectCategory('top_rated', 1)" class="view-all">View All</a>
                             </header>
                             <ul class='movies-list' id="top-rated-movies">
 
@@ -104,7 +104,7 @@
                         <div class="movies">
                             <header class="movies-header">
                                 <h2>Upcoming Movies</h2>
-                                <a onclick="selectCategory('upcoming')" class="view-all">View All</a>
+                                <a onclick="selectCategory('upcoming', 1)" class="view-all">View All</a>
                             </header>
                             <ul class='movies-list' id="upcoming-movies">
 
@@ -113,7 +113,7 @@
                         <div class="movies">
                             <header class="movies-header">
                                 <h2>Now Playing Movies</h2>
-                                <a onclick="selectCategory('now_playing')" class="view-all">View All</a>
+                                <a onclick="selectCategory('now_playing', 1)" class="view-all">View All</a>
                             </header>
                             <ul class='movies-list' id="now-playing-movies">
 

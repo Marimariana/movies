@@ -125,34 +125,59 @@ const printMovieDetails = movie => {
 }
 
 // BOTÓN LOAD MORE
-const setButton = category => {
+const createCategoryBtn = category => {
   const container = document.getElementById("btn-container")
   container.innerHTML = ''
   const loadMoreNode = document.createElement("button")
   loadMoreNode.innerText = "Give me more"
   loadMoreNode.onclick = () => {
-    //event.preventDefault()
     currentPage++
-    selectCategory(category)
+    selectCategory(category, currentPage)
     return currentPage
   }
   container.appendChild(loadMoreNode)
-  let pageNumber = document.getElementById('page-number')
-  pageNumber.innerText = `Page ${currentPage}`
+}
+
+const createSearchBtn = keywords => {
+  const container = document.getElementById("btn-container")
+  container.innerHTML = ''
+  const loadMoreNode = document.createElement("button")
+  loadMoreNode.innerText = "Give me more"
+  loadMoreNode.onclick = () => {
+    currentPage++
+    searchMovie(keywords)
+    return currentPage
+  }
+  container.appendChild(loadMoreNode)
 }
 
 // BÚSQUEDA
+const handleKeyPress = event => {
+  if (event.code === 'Enter') {
+    const modal = document.querySelector(".modal")
+    modal.classList.remove("show-modal")
+    let menu = document.getElementById('menu')
+    menu.classList.remove('open')
+    menu.classList.add('closed')
+    let hamburger = document.getElementById('hamburger')
+    hamburger.classList.remove('close-icon')
+    searchMovie()
+  }
+}
+
 const searchMovie = () => {
   let input = document.getElementById('search-input')
   let keywords = input.value
-  createButton(keywords)
+  createSearchBtn(keywords)
+
   if (input.value !== "") {
-    //input.value = ''
     document.title = 'Search Results - TMDb'
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${keywords}&page=${currentPage}`)
       .then(res => res.json())
       .then(res => printSearchResults(res, res.results))
     }
+    let pageNumber = document.getElementById('page-number')
+  pageNumber.innerText = `Page ${currentPage}`
 }
 
 const printSearchResults = (mov, movies) => {
@@ -188,34 +213,6 @@ const printSearchResults = (mov, movies) => {
   })
 }
 
-const createButton = (keywords) => {                        // <-- SOLO PARA SEARCH RESULTS
-  const container = document.getElementById("btn-container")
-  container.innerHTML = ''
-  const loadMoreNode = document.createElement("button")
-  loadMoreNode.innerText = "Give me more"
-  loadMoreNode.onclick = () => {
-    currentPage++
-    searchMovie(keywords)
-    return currentPage
-  }
-  container.appendChild(loadMoreNode)
-  let pageNumber = document.getElementById('page-number')
-  pageNumber.innerText = `Page ${currentPage}`
-}
-
-const handleKeyPress = event => {
-  if (event.code === 'Enter') {
-    const modal = document.querySelector(".modal")
-    modal.classList.remove("show-modal")
-    let menu = document.getElementById('menu')
-    menu.classList.remove('open')
-    menu.classList.add('closed')
-    let hamburger = document.getElementById('hamburger')
-    hamburger.classList.remove('close-icon')
-    searchMovie()
-  }
-}
-
 // MOSTRAR MENU MOBILE
 const toggleMenu = () => {
   let menu = document.getElementById('menu')
@@ -225,26 +222,16 @@ const toggleMenu = () => {
   hamburger.classList.toggle('close-icon')
 }
 
-// AUXILIARES XD
-const closeModal = () => {
-  const modal = document.querySelector(".modal")
-  modal.classList.remove("show-modal")
-}
-
-const closeMenu = () => {
-  let menu = document.getElementById('menu')
-  if (menu.classList.contains('open')) {
-    toggleMenu()
-  }
-}
-
 // LLENAR CATEGORÍAS
-const selectCategory = category => {
-  fetch(`https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}&page=${currentPage}`)
+const selectCategory = (category, page) => {
+  currentPage = page
+  fetch(`https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}&page=${page}`)
     .then(res => res.json())
     .then(res => printCategoryResults(res, res.results))
     titleName(category)
-    setButton(category)
+    createCategoryBtn(category)
+    let pageNumber = document.getElementById('page-number')
+    pageNumber.innerText = `Page ${currentPage}`
 }
 
 const printCategoryResults = (mov, movies) => {
@@ -303,5 +290,18 @@ const titleName = category => {
       break;
     default:
       title.innerText = "Search Results"
+  }
+}
+
+// AUXILIARES xd
+const closeModal = () => {
+  const modal = document.querySelector(".modal")
+  modal.classList.remove("show-modal")
+}
+
+const closeMenu = () => {
+  let menu = document.getElementById('menu')
+  if (menu.classList.contains('open')) {
+    toggleMenu()
   }
 }

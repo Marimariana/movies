@@ -1,14 +1,18 @@
 @import "style.css";
 
+//VARIABLES
+$dark-pink: #bc3b69;
+$dark-blue: #15202b;
+
 html {
-    background-color: #15202b;
+    background-color: $dark-blue;
     text-shadow: none;
     box-shadow: none;
     transition: background 0.5s;
     color: white;
 
     h1, h2, h3, p, span, figcaption, input, a  {
-        color: #bc3b69 !important;
+        color: $dark-pink !important;
     }
 
     p, span  {
@@ -20,19 +24,19 @@ html {
     }
 
     .movies-container, .modal {
-        background-color: #000000;
+        background-color: black;
 
         div, header, ul, li, figcaption, h2, a, figure {
-            background-color: #000000 !important;
+            background-color: black !important;
         }
 
         .modal-content {
-            background-color: #15202b !important;            
+            background-color: $dark-blue !important;            
         }
     }
 
     .logo, .wrapper, input, #modal-body, #movie-info, #menu {
-        background-color: #15202b !important;
+        background-color: $dark-blue !important;
     }
 
     .close-button {
@@ -47,7 +51,7 @@ html {
         background-color: transparent !important;
 
         p {
-            color: #bc3b69 !important;
+            color: $dark-pink !important;
         }
 
         span {
@@ -92,19 +96,19 @@ html {
 
     #search-results {
         button {
-            border: solid 1px #bc3b69 !important;
-            background-color: #bc3b69 !important;
+            border: solid 1px $dark-pink !important;
+            background-color: $dark-pink !important;
             color: white !important;
 
             &:hover {
                 background-color: white !important;
-                color: #bc3b69 !important;
+                color: $dark-pink !important;
             }
         }
     }
 
     #page-number, #total-results {
-        color: #bc3b69 !important;
+        color: $dark-pink !important;
     } 
 
     #popular-icon {
