@@ -131,6 +131,7 @@ const setButton = category => {
   const loadMoreNode = document.createElement("button")
   loadMoreNode.innerText = "Give me more"
   loadMoreNode.onclick = () => {
+    //event.preventDefault()
     currentPage++
     selectCategory(category)
     return currentPage
@@ -144,11 +145,11 @@ const setButton = category => {
 const searchMovie = () => {
   let input = document.getElementById('search-input')
   let keywords = input.value
-
+  createButton(keywords)
   if (input.value !== "") {
-    input.value = ''
+    //input.value = ''
     document.title = 'Search Results - TMDb'
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${keywords}`)
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${keywords}&page=${currentPage}`)
       .then(res => res.json())
       .then(res => printSearchResults(res, res.results))
     }
@@ -185,16 +186,16 @@ const printSearchResults = (mov, movies) => {
     li.appendChild(anchor)
     container.appendChild(li)
   })
-  createButton()
 }
 
-const createButton = () => {                        // <-- SOLO PARA SEARCH RESULTS
+const createButton = (keywords) => {                        // <-- SOLO PARA SEARCH RESULTS
   const container = document.getElementById("btn-container")
   container.innerHTML = ''
   const loadMoreNode = document.createElement("button")
   loadMoreNode.innerText = "Give me more"
   loadMoreNode.onclick = () => {
     currentPage++
+    searchMovie(keywords)
     return currentPage
   }
   container.appendChild(loadMoreNode)
