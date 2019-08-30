@@ -12,9 +12,24 @@ const initialize = () => {
   displayMovies('top-rated-movies', 'top_rated', previewHome)
   displayMovies('upcoming-movies', 'upcoming', previewHome)
   displayMovies('now-playing-movies', 'now_playing', previewHome)
+  getTheme()
 }
 
-//Función que recorre el objeto, extrae y appendea los elementos que se necesitan fetch -> DOM
+// SELECCION DE TEMA
+const theme = document.getElementById('theme')
+
+const toggleMode = sheet => {
+  theme.href = sheet
+  let parsedData = JSON.stringify(sheet)
+  window.localStorage.setItem("sheet", parsedData)
+}
+
+const getTheme = () => {
+  let selectedTheme = window.localStorage.getItem("sheet")
+  theme.href = selectedTheme ? JSON.parse(selectedTheme) : theme.href
+}
+
+// LLENAR HOME
 const displayMovies = (id, category, numberMovies) => {
   const container = document.getElementById(id)
   container.innerHTML = ''
@@ -43,14 +58,15 @@ const displayMovies = (id, category, numberMovies) => {
     })
 }
 
-//modal de información
+// MODAL
 const toggleModal = movieId => {
   const modal = document.querySelector(".modal")
   modal.classList.toggle("show-modal")
   const closeButton = document.querySelector(".close-button")
   const windowOnClick = event => {
     if (event.target === modal) {
-      toggleModal()
+      toggleModal(movieId)
+      fillModal(movieId)
     }
   }
   closeButton.addEventListener("click", toggleModal)
@@ -61,108 +77,129 @@ const toggleModal = movieId => {
 const fillModal = movieId => {
   fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`)
     .then(res => res.json())
-    .then(res => {
-      document.title = `${res.title} - TMDb`
-      let modalHeader = document.getElementById('modal-header')
-      modalHeader.innerHTML = ''
-      modalHeader.style.backgroundImage = "url(" + `https://image.tmdb.org/t/p/w500${res.backdrop_path}` + ")"
-      let movieTitle = document.getElementById('movie-title')
-      movieTitle.innerHTML = `<p>${res.title}</p>`
-      let tagline = document.createElement('span')
-      tagline.innerText = `${res.tagline}`
-      movieTitle.appendChild(tagline)
-      let figure = document.createElement('figure')
-      figure.classList.add('movie-poster')
-      let moviePoster = document.createElement('img')
-      moviePoster.src = `https://image.tmdb.org/t/p/w300${res.poster_path}`
-      figure.appendChild(moviePoster)
-      modalHeader.appendChild(figure)
-
-      let movieInfo = document.getElementById('movie-info')
-      movieInfo.innerHTML = ''
-
-      let overview = document.createElement('p')
-      overview.classList.add('overview')
-      overview.innerText = `${res.overview}`
-      movieInfo.appendChild(overview)
-
-      let releaseDate = document.createElement('h3')
-      releaseDate.classList.add('modalHeading')
-      releaseDate.innerText = `RELEASE DATE`
-      movieInfo.appendChild(releaseDate)
-
-      let date = document.createElement('p')
-      date.innerText = moment(res.release_date, 'YYYY-MM-DD').format('Do MMM YYYY')
-      movieInfo.appendChild(date)
-
-      let genres = document.createElement('h3')
-      genres.classList.add('modalHeading')
-      genres.innerText = `GENRES`
-      movieInfo.appendChild(genres)
-
-      let genreList = document.createElement('p')
-      genreList.innerText = res.genres.map(({name}) => name).join(', ')
-      movieInfo.appendChild(genreList)
-    })
+    .then(res => printMovieDetails(res))
 }
 
-const searchMovie = numberMovies => {
+const printMovieDetails = movie => {
+  document.title = `${movie.title} - TMDb`
+  let modalHeader = document.getElementById('modal-header')
+  modalHeader.innerHTML = ''
+  modalHeader.style.backgroundImage = "url(" + `https://image.tmdb.org/t/p/w500${movie.backdrop_path}` + ")"
+  let movieTitle = document.getElementById('movie-title')
+  movieTitle.innerHTML = `<p>${movie.title}</p>`
+  let tagline = document.createElement('span')
+  tagline.innerText = `${movie.tagline}`
+  movieTitle.appendChild(tagline)
+  let figure = document.createElement('figure')
+  figure.classList.add('movie-poster')
+  let moviePoster = document.createElement('img')
+  moviePoster.src = `https://image.tmdb.org/t/p/w300${movie.poster_path}`
+  figure.appendChild(moviePoster)
+  modalHeader.appendChild(figure)
+
+  let movieInfo = document.getElementById('movie-info')
+  movieInfo.innerHTML = ''
+
+  let overview = document.createElement('p')
+  overview.classList.add('overview')
+  overview.innerText = `${movie.overview}`
+  movieInfo.appendChild(overview)
+
+  let releaseDate = document.createElement('h3')
+  releaseDate.classList.add('modalHeading')
+  releaseDate.innerText = `RELEASE DATE`
+  movieInfo.appendChild(releaseDate)
+
+  let date = document.createElement('p')
+  date.innerText = moment(movie.release_date, 'YYYY-MM-DD').format('Do MMM YYYY')
+  movieInfo.appendChild(date)
+
+  let genres = document.createElement('h3')
+  genres.classList.add('modalHeading')
+  genres.innerText = `GENRES`
+  movieInfo.appendChild(genres)
+
+  let genreList = document.createElement('p')
+  genreList.innerText = movie.genres.map(({name}) => name).join(', ')
+  movieInfo.appendChild(genreList)
+}
+
+// BOTÓN LOAD MORE
+const setButton = category => {
+  const container = document.getElementById("btn-container")
+  container.innerHTML = ''
+  const loadMoreNode = document.createElement("button")
+  loadMoreNode.innerText = "Give me more"
+  loadMoreNode.onclick = () => {
+    currentPage++
+    selectCategory(category)
+    return currentPage
+  }
+  container.appendChild(loadMoreNode)
+  let pageNumber = document.getElementById('page-number')
+  pageNumber.innerText = `Page ${currentPage}`
+}
+
+// BÚSQUEDA
+const searchMovie = () => {
   let input = document.getElementById('search-input')
   let keywords = input.value
 
   if (input.value !== "") {
     input.value = ''
     document.title = 'Search Results - TMDb'
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${keywords}&page=${currentPage}`)
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${keywords}`)
       .then(res => res.json())
-      .then(res => {
-        const container = document.getElementById('search-results-list')
-        container.innerHTML = ''
-        let hideCategories = document.getElementById('categories-div')
-        hideCategories.classList.add('hide')
-        let resultsDiv = document.getElementById('search-results-div')
-        resultsDiv.classList.remove('hide')
-        let resultsContainer = document.getElementById('search-results')
-        resultsContainer.classList.remove('hide')
-        let totalResults = document.getElementById('total-results')
-        totalResults.innerText = `${res.total_results} results`
-        titleName()
-        numberMovies.forEach(num => {
-          let li = document.createElement('li')
-          let anchor = document.createElement('a')
-          let figure = document.createElement('figure')
-          let image = document.createElement('img')
-          let movieTitle = document.createElement('figcaption')
-          image.src = `https://image.tmdb.org/t/p/w300${res.results[num].poster_path}`
-          movieTitle.innerText = res.results[num].title
-          figure.appendChild(image)
-          figure.appendChild(movieTitle)
-          anchor.appendChild(figure)
-          anchor.onclick = () => {
-            let movieId = res.results[num].id
-            toggleModal(movieId)
-            fillModal(movieId)
-          }
-          li.appendChild(anchor)
-          container.appendChild(li)
-        })
-        const createButton = () => {
-          const container = document.getElementById("btn-container")
-          container.innerHTML = ''
-          const loadMoreNode = document.createElement("button")
-          loadMoreNode.innerText = "Give me more"
-          loadMoreNode.onclick = () => {
-            searchMovie()
-            currentPage++
-            return currentPage
-          }
-          container.appendChild(loadMoreNode)
-          let pageNumber = document.getElementById('page-number')
-          pageNumber.innerText = `Page ${currentPage}`
-        }
-        createButton()
-      })
+      .then(res => printSearchResults(res, res.results))
+    }
+}
+
+const printSearchResults = (mov, movies) => {
+  const container = document.getElementById('search-results-list')
+  container.innerHTML = ''
+  let hideCategories = document.getElementById('categories-div')
+  hideCategories.classList.add('hide')
+  let resultsDiv = document.getElementById('search-results-div')
+  resultsDiv.classList.remove('hide')
+  let resultsContainer = document.getElementById('search-results')
+  resultsContainer.classList.remove('hide')
+  let totalResults = document.getElementById('total-results')
+  totalResults.innerText = `${mov.total_results} results`
+  titleName()
+  movies.forEach(movie => {
+    let li = document.createElement('li')
+    let anchor = document.createElement('a')
+    let figure = document.createElement('figure')
+    let image = document.createElement('img')
+    let movieTitle = document.createElement('figcaption')
+    image.src = `https://image.tmdb.org/t/p/w300${movie.poster_path}`
+    movieTitle.innerText = movie.title
+    figure.appendChild(image)
+    figure.appendChild(movieTitle)
+    anchor.appendChild(figure)
+    anchor.onclick = () => {
+      let movieId = movie.id
+      toggleModal(movieId)
+      fillModal(movieId)
+    }
+    li.appendChild(anchor)
+    container.appendChild(li)
+  })
+  createButton()
+}
+
+const createButton = () => {                        // <-- SOLO PARA SEARCH RESULTS
+  const container = document.getElementById("btn-container")
+  container.innerHTML = ''
+  const loadMoreNode = document.createElement("button")
+  loadMoreNode.innerText = "Give me more"
+  loadMoreNode.onclick = () => {
+    currentPage++
+    return currentPage
   }
+  container.appendChild(loadMoreNode)
+  let pageNumber = document.getElementById('page-number')
+  pageNumber.innerText = `Page ${currentPage}`
 }
 
 const handleKeyPress = event => {
@@ -174,7 +211,7 @@ const handleKeyPress = event => {
     menu.classList.add('closed')
     let hamburger = document.getElementById('hamburger')
     hamburger.classList.remove('close-icon')
-    searchMovie(previewAll)
+    searchMovie()
   }
 }
 
@@ -187,6 +224,7 @@ const toggleMenu = () => {
   hamburger.classList.toggle('close-icon')
 }
 
+// AUXILIARES XD
 const closeModal = () => {
   const modal = document.querySelector(".modal")
   modal.classList.remove("show-modal")
@@ -199,54 +237,50 @@ const closeMenu = () => {
   }
 }
 
-//MODO OSCURO
-const toggleMode = sheet => {
-  document.getElementById('theme').setAttribute('href', sheet)
-}
-
-//Selectores de categoria
+// LLENAR CATEGORÍAS
 const selectCategory = category => {
-  const container = document.getElementById('search-results-list')
-  container.innerHTML = ''
   fetch(`https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}&page=${currentPage}`)
     .then(res => res.json())
-    .then(res => {
-      closeModal()
-      closeMenu()
-      let hideCategories = document.getElementById('categories-div')
-      hideCategories.classList.add('hide')
-      let resultsDiv = document.getElementById('search-results-div')
-      resultsDiv.classList.remove('hide')
-      let resultsContainer = document.getElementById('search-results')
-      resultsContainer.classList.remove('hide')
-      let totalResults = document.getElementById('total-results')
-      totalResults.innerText = `${res.total_results} results`
-      titleName(category)
-      previewAll.forEach(num => {
-        let li = document.createElement('li')
-        let anchor = document.createElement('a')
-        let figure = document.createElement('figure')
-        let image = document.createElement('img')
-        let movieTitle = document.createElement('figcaption')
-        image.src = `https://image.tmdb.org/t/p/w300${res.results[num].poster_path}`
-        movieTitle.innerText = res.results[num].title
-        figure.appendChild(image)
-        figure.appendChild(movieTitle)
-        anchor.appendChild(figure)
-        anchor.onclick = () => {
-          let movieId = res.results[num].id
-          toggleModal(movieId)
-          fillModal(movieId)
-        }
-        li.appendChild(anchor)
-        container.appendChild(li)
-      })
-      if (currentPage < res.total_pages) {
-        setButton(category)
-      }
-    })  
+    .then(res => printCategoryResults(res, res.results))
+    titleName(category)
+    setButton(category)
 }
-//Titulos de cabecera 
+
+const printCategoryResults = (mov, movies) => {
+  closeModal()
+  closeMenu()
+  const container = document.getElementById('search-results-list')
+  container.innerHTML = ''
+  let hideCategories = document.getElementById('categories-div')
+  hideCategories.classList.add('hide')
+  let resultsDiv = document.getElementById('search-results-div')
+  resultsDiv.classList.remove('hide')
+  let resultsContainer = document.getElementById('search-results')
+  resultsContainer.classList.remove('hide')
+  let totalResults = document.getElementById('total-results')
+  totalResults.innerText = `${mov.total_results} results`
+  movies.forEach(movie => {
+    let li = document.createElement('li')
+    let anchor = document.createElement('a')
+    let figure = document.createElement('figure')
+    let image = document.createElement('img')
+    let movieTitle = document.createElement('figcaption')
+    image.src = `https://image.tmdb.org/t/p/w300${movie.poster_path}`
+    movieTitle.innerText = movie.title
+    figure.appendChild(image)
+    figure.appendChild(movieTitle)
+    anchor.appendChild(figure)
+    anchor.onclick = () => {
+      let movieId = movie.id
+      toggleModal(movieId)
+      fillModal(movieId)
+    }
+    li.appendChild(anchor)
+    container.appendChild(li)
+  })
+}
+
+// TÍTULOS
 const titleName = category => {
   const title = document.getElementById('title')
   switch (category) {
@@ -269,20 +303,4 @@ const titleName = category => {
     default:
       title.innerText = "Search Results"
   }
-}
-
-// Boton para sumar más peliculas
-const setButton = category => {
-  const container = document.getElementById("btn-container")
-  container.innerHTML = ''
-  const loadMoreNode = document.createElement("button")
-  loadMoreNode.innerText = "Give me more"
-  loadMoreNode.onclick = () => {
-    currentPage++
-    selectCategory(category)
-    return currentPage
-  }
-  container.appendChild(loadMoreNode)
-  let pageNumber = document.getElementById('page-number')
-  pageNumber.innerText = `Page ${currentPage}`
 }
