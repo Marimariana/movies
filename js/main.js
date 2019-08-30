@@ -130,12 +130,10 @@ const createCategoryBtn = category => {
   loadMoreNode.innerText = "Give me more"
   loadMoreNode.onclick = () => {
     currentPage++
-    selectCategory(category)
+    selectCategory(category, currentPage)
     return currentPage
   }
   container.appendChild(loadMoreNode)
-  let pageNumber = document.getElementById('page-number')
-  pageNumber.innerText = `Page ${currentPage}`
 }
 
 const createSearchBtn = keywords => {
@@ -149,8 +147,6 @@ const createSearchBtn = keywords => {
     return currentPage
   }
   container.appendChild(loadMoreNode)
-  let pageNumber = document.getElementById('page-number')
-  pageNumber.innerText = `Page ${currentPage}`
 }
 
 // BÚSQUEDA
@@ -178,6 +174,8 @@ const searchMovie = () => {
       .then(res => res.json())
       .then(res => printSearchResults(res, res.results))
     }
+    let pageNumber = document.getElementById('page-number')
+  pageNumber.innerText = `Page ${currentPage}`
 }
 
 const printSearchResults = (mov, movies) => {
@@ -223,12 +221,15 @@ const toggleMenu = () => {
 }
 
 // LLENAR CATEGORÍAS
-const selectCategory = category => {
-  fetch(`https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}&page=${currentPage}`)
+const selectCategory = (category, page) => {
+  currentPage = page
+  fetch(`https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}&page=${page}`)
     .then(res => res.json())
     .then(res => printCategoryResults(res, res.results))
     titleName(category)
     createCategoryBtn(category)
+    let pageNumber = document.getElementById('page-number')
+    pageNumber.innerText = `Page ${currentPage}`
 }
 
 const printCategoryResults = (mov, movies) => {
