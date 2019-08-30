@@ -174,7 +174,7 @@ const searchMovie = () => {
 
   if (input.value !== "") {
     document.title = 'Search Results - TMDb'
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${keywords}`)
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${keywords}&page=${currentPage}`)
       .then(res => res.json())
       .then(res => printSearchResults(res, res.results))
     }
