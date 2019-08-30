@@ -123,7 +123,7 @@ const printMovieDetails = movie => {
 }
 
 // BOTÓN LOAD MORE
-const setButton = category => {
+const createCategoryBtn = category => {
   const container = document.getElementById("btn-container")
   container.innerHTML = ''
   const loadMoreNode = document.createElement("button")
@@ -138,7 +138,7 @@ const setButton = category => {
   pageNumber.innerText = `Page ${currentPage}`
 }
 
-const createButton = keywords => {
+const createSearchBtn = keywords => {
   const container = document.getElementById("btn-container")
   container.innerHTML = ''
   const loadMoreNode = document.createElement("button")
@@ -170,7 +170,7 @@ const handleKeyPress = event => {
 const searchMovie = () => {
   let input = document.getElementById('search-input')
   let keywords = input.value
-  createButton(keywords)
+  createSearchBtn(keywords)
 
   if (input.value !== "") {
     document.title = 'Search Results - TMDb'
@@ -228,7 +228,7 @@ const selectCategory = category => {
     .then(res => res.json())
     .then(res => printCategoryResults(res, res.results))
     titleName(category)
-    setButton(category)
+    createCategoryBtn(category)
 }
 
 const printCategoryResults = (mov, movies) => {
