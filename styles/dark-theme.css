@@ -16,10 +16,10 @@ html .main-header::before {
   background: rgba(15, 15, 15, 0.7) !important;
 }
 html .movies-container, html .modal {
-  background-color: #000000;
+  background-color: black;
 }
 html .movies-container div, html .movies-container header, html .movies-container ul, html .movies-container li, html .movies-container figcaption, html .movies-container h2, html .movies-container a, html .movies-container figure, html .modal div, html .modal header, html .modal ul, html .modal li, html .modal figcaption, html .modal h2, html .modal a, html .modal figure {
-  background-color: #000000 !important;
+  background-color: black !important;
 }
 html .movies-container .modal-content, html .modal .modal-content {
   background-color: #15202b !important;

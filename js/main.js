@@ -138,13 +138,41 @@ const setButton = category => {
   pageNumber.innerText = `Page ${currentPage}`
 }
 
+const createButton = keywords => {
+  const container = document.getElementById("btn-container")
+  container.innerHTML = ''
+  const loadMoreNode = document.createElement("button")
+  loadMoreNode.innerText = "Give me more"
+  loadMoreNode.onclick = () => {
+    currentPage++
+    searchMovie(keywords)
+    return currentPage
+  }
+  container.appendChild(loadMoreNode)
+  let pageNumber = document.getElementById('page-number')
+  pageNumber.innerText = `Page ${currentPage}`
+}
+
 // BÚSQUEDA
+const handleKeyPress = event => {
+  if (event.code === 'Enter') {
+    const modal = document.querySelector(".modal")
+    modal.classList.remove("show-modal")
+    let menu = document.getElementById('menu')
+    menu.classList.remove('open')
+    menu.classList.add('closed')
+    let hamburger = document.getElementById('hamburger')
+    hamburger.classList.remove('close-icon')
+    searchMovie()
+  }
+}
+
 const searchMovie = () => {
   let input = document.getElementById('search-input')
   let keywords = input.value
+  createButton(keywords)
 
   if (input.value !== "") {
-    input.value = ''
     document.title = 'Search Results - TMDb'
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${keywords}`)
       .then(res => res.json())
@@ -183,34 +211,6 @@ const printSearchResults = (mov, movies) => {
     li.appendChild(anchor)
     container.appendChild(li)
   })
-  createButton()
-}
-
-const createButton = () => {                        // <-- SOLO PARA SEARCH RESULTS
-  const container = document.getElementById("btn-container")
-  container.innerHTML = ''
-  const loadMoreNode = document.createElement("button")
-  loadMoreNode.innerText = "Give me more"
-  loadMoreNode.onclick = () => {
-    currentPage++
-    return currentPage
-  }
-  container.appendChild(loadMoreNode)
-  let pageNumber = document.getElementById('page-number')
-  pageNumber.innerText = `Page ${currentPage}`
-}
-
-const handleKeyPress = event => {
-  if (event.code === 'Enter') {
-    const modal = document.querySelector(".modal")
-    modal.classList.remove("show-modal")
-    let menu = document.getElementById('menu')
-    menu.classList.remove('open')
-    menu.classList.add('closed')
-    let hamburger = document.getElementById('hamburger')
-    hamburger.classList.remove('close-icon')
-    searchMovie()
-  }
 }
 
 // MOSTRAR MENU MOBILE
@@ -220,19 +220,6 @@ const toggleMenu = () => {
   menu.classList.toggle('closed')
   let hamburger = document.getElementById('hamburger')
   hamburger.classList.toggle('close-icon')
-}
-
-// AUXILIARES XD
-const closeModal = () => {
-  const modal = document.querySelector(".modal")
-  modal.classList.remove("show-modal")
-}
-
-const closeMenu = () => {
-  let menu = document.getElementById('menu')
-  if (menu.classList.contains('open')) {
-    toggleMenu()
-  }
 }
 
 // LLENAR CATEGORÍAS
@@ -300,5 +287,18 @@ const titleName = category => {
       break;
     default:
       title.innerText = "Search Results"
+  }
+}
+
+// AUXILIARES xd
+const closeModal = () => {
+  const modal = document.querySelector(".modal")
+  modal.classList.remove("show-modal")
+}
+
+const closeMenu = () => {
+  let menu = document.getElementById('menu')
+  if (menu.classList.contains('open')) {
+    toggleMenu()
   }
 }

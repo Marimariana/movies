@@ -1,0 +1,131 @@
+.nav {
+    position: fixed;
+    width: 95px;
+    height: 100vh;
+    z-index: 999;
+
+    @media screen and (max-width: 770px) {
+        width: 55px;
+        height: 50px;
+    }
+
+    .logo {
+        background-color: coral;
+        height: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 35px;
+            transition: transform 0.5s ease;
+
+            &:hover {
+                transform: scale(1.04);
+            }
+
+            @media screen and (max-width: 770px) {
+                width: 35px;
+                height: 31px;
+            }
+        }
+
+        @media screen and (max-width: 770px) {
+            height: 50px;
+            width: 55px;
+        }
+    }
+
+    .closed {
+        @media screen and (max-width: 770px) {
+            display: none;
+        }
+    }
+
+    .open {
+        display: flex;
+        z-index: 999;
+        list-style: none;
+        background-color: white;
+        width: 100vw;
+        height: 100vh;
+        border-top: 1px solid #f8f8f8;
+        background: hsla(0, 0%, 100%, .98);
+
+        .nav-item {
+            width: 50%;
+        }
+
+        .nav-link {
+            border-right: 1px solid #f8f8f8;
+        }
+    }
+
+    .nav-list {
+        .nav-link {
+            height: 95px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #f8f8f8;
+            cursor: pointer;
+
+            &:hover .svg {
+                transform: scale(1.5);
+            }
+
+            &:hover .title-popular {
+                color: coral
+            }
+
+            &:hover .title-toprated {
+                color: coral
+            }
+
+            &:hover .title-nowplaying {
+                color: coral
+            }
+
+            &:hover .title-upcoming {
+                color: coral
+            }
+
+            .wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                button {
+                    width: 26px;
+                    height: 26px;
+                    background: transparent;
+                }
+
+                span {
+                    font-size: 9px;
+                    margin-top: 10px;
+                    color: $clear-coral;
+                    font-weight: lighter;
+                    letter-spacing: .5px;
+                }
+
+                #popular-icon {
+                    @include wrapper-icons('../assets/popular.svg')
+                }
+
+                #top-rated-icon {
+                    @include wrapper-icons('../assets/top_rated.svg')
+                }
+
+                #upcoming-icon {
+                    @include wrapper-icons('../assets/upcoming.svg')
+                }
+
+                #now-playing-icon {
+                    @include wrapper-icons('../assets/now_playing.svg')
+                }
+            }
+        }
+    }
+}
