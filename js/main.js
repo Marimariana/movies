@@ -13,6 +13,7 @@ const initialize = () => {
 }
 
 // SELECCION DE TEMA
+// me vuelvo loco de felicidá
 const theme = document.getElementById('theme')
 
 const toggleMode = sheet => {
@@ -28,6 +29,7 @@ const getTheme = () => {
 
 // LLENAR HOME
 const displayMovies = (id, category, numberMovies) => {
+  // number movies deberia ser precisamente un número y hacer la iteración con un for en lugar de recorrer un lista. es mas performante y consistente. 
   const container = document.getElementById(id)
   container.innerHTML = ''
   fetch(`https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}`)
@@ -78,6 +80,8 @@ const fillModal = movieId => {
 }
 
 const printMovieDetails = movie => {
+  // se podría simplificar un poco el generación de elmentos usando string template
+  // suerte que ahora tenemos react :D 
   document.title = `${movie.title} - TMDb`
   let modalHeader = document.getElementById('modal-header')
   modalHeader.innerHTML = ''
